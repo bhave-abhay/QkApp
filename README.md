@@ -33,3 +33,6 @@ app.show_dialog(
   }
 }]);
 ```
+### Demo
+[A demo with silly wizard sporting a few silly forms in a silly app...](https://bhave-abhay.github.io/sillyapp/test/)
+Yeah... it's a silly world!
