@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SillyApp demo</title>
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/4.0.0/bootstrap.css" />
+    <script type="text/javascript" src="../lib/jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../lib/jquery/jquery-ui-1.12.1.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/4.0.0/bootstrap.js"></script>
+    <script type="text/javascript" src="../src/js/sillyapp.js"></script>
+</head>
+<body>
+    <div class="container body-content" style="display: flex; flex-direction: column;">
+        <div class="row sticky-top">
+            <div class="col-12" id="TopBar">
+                <nav id="MainNav" class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">Silly App</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-home"></i>
+                                    Home<span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">
+                                    <i class="far fa-lightbulb"></i>
+                                    About
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="doc/">
+                                    <i class="fas fa-envelope"></i>
+                                    Documentation
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav right">
+                            <li id="nav_login" class="nav-item visitormenu">
+                                <a href="#" onclick="fn_ShowLoginDialog();" class="nav-link">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Login
+                                </a>
+                            </li>
+                            <li id="nav_myaccount" class="nav-item dropdown usermenu">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="far fa-user"></i>
+                                    My Account
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownAccMenuLink" style="width: 250px; padding: 10px;">
+                                    <img class="card-img-top" src="images/profile.svg" alt="Profile image" />
+                                    <div class="card-block">
+                                        <h4 class="card-title" id="lblUserFullName">{User's Name}</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted" id="lblUserRole">{User's role}</h6>
+                                        <p class="card-text">
+                                            Some quick example text to build on the card title and
+                                            make up the bulk of the card's content.
+                                        </p>
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <a href="#" class="card-link" id="linkMyProfile">Profile</a><br />
+                                        <a href="#" class="card-link" id="linkMyBusiness">My Business</a><br />
+                                        <a href="#" class="card-link text-danger pull-right" id="linkSignout">Log out</a><br />
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li id="nav_docs" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDocMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-book"></i>
+                                    Docs
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownDocMenuLink" style="padding: 10px;">
+                                    <a href="#">
+                                        <i class="fas fa-book"></i>
+                                        SRS (High Level)
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-12" data-sillyapp-role="alert-container"></div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <ul class="nav flex-column nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-android"></i>
+                            <span class="d-none d-sm-inline">
+                                Link 1
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-bicycle"></i>
+                            <span class="d-none d-sm-inline">
+                                Link 1
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item usermenu">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-bullhorn"></i>
+                            <span class="d-none d-sm-inline">
+                                Link 1
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-coffee"></i>
+                            <span class="d-none d-sm-inline">
+                                Link 1
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-code"></i>
+                            <span class="d-none d-sm-inline">
+                                Link 1
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-10">
+                <div class="container" data-sillyapp-role="overlay-container">
+                    <h2>Main Content</h2>
+                    <div class="card" id="divWizard">
+                        <div class="card-header">Make my business smarter!</div>
+                        <div class="card-body">
+                            <div class="card-title"><strong data-sillywizard-role="frame-title"></strong></div>
+                            <div class="card-text" data-sillywizard-role="frame">
+                                <div class="container" id="formBusiness_basic">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="form-group">
+                                                <label for="txtBusinessFullName" class="label label-default">Full name of the Business</label>
+                                                <input type="text" placeholder="Full name of the Business" class="form-control" id="txtBusinessFullName" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="txtBusinessShortName" class="label label-default">Business name (abbr.)</label>
+                                                <input type="text" placeholder="Business name (abbr.)" class="form-control" id="txtBusinessShortName" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="txtAddressL1" class="label label-default">Address (Line 1)</label>
+                                                <input type="text" placeholder="Address (Line 1)" class="form-control" id="txtAddressL1" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="txtAddressL2" class="label label-default">Address (Line 2)</label>
+                                                <input type="text" placeholder="Address (Line 2)" class="form-control" id="txtAddressL2" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="txtBusinessCity" class="label label-default">City</label>
+                                                <input type="text" placeholder="City" class="form-control" id="txtBusinessCity" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="txtBusinessDistrict" class="label label-default">District</label>
+                                                <input type="text" placeholder="District" class="form-control" id="txtBusinessDistrict" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="txtBusinessPostalCode" class="label label-default">Postal Code</label>
+                                                <input type="text" placeholder="Postal Coded" class="form-control" id="txtBusinessPostalCode" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="txtBusinessState" class="label label-default">State</label>
+                                                <input type="text" placeholder="State" class="form-control" id="txtBusinessState" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="txtBusinessCountryCode" class="label label-default">Country Code</label>
+                                                <input type="text" placeholder="Country Code" class="form-control" id="txtBusinessCountryCode" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-danger" data-sillyform-role="validation-summary">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container" id="formBusiness_contact">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="txtBusinessPhoneNumber1" class="label label-default">Phone Number 1</label>
+                                                <input type="text" placeholder="Phone Number 1" class="form-control" id="txtBusinessPhoneNumber1" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="txtBusinessPhoneNumber2" class="label label-default">Phone Number 2</label>
+                                                <input type="text" placeholder="Phone Number 2" class="form-control" id="txtBusinessPhoneNumber2" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="txtBusinessEmail" class="label label-default">email Id</label>
+                                                <input type="text" placeholder="Business Email Id" class="form-control" id="txtBusinessEmail" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-danger" data-sillyform-role="validation-summary">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="formAdmin" class="container">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="txtFirstName" class="label label-default">First Name</label>
+                                                <input type="text" placeholder="First Name" class="form-control" id="txtFirstName" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="txtLastName" class="label label-default">Last Name</label>
+                                                <input type="text" placeholder="Last Name" class="form-control" id="txtLastName">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="txtEMail" class="label label-default">email ID</label>
+                                                <input type="text" placeholder="email ID" class="form-control" id="txtEMail" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="txtMobile" class="label label-default">Mobile Number</label>
+                                                <input type="text" placeholder="Mobile Number" class="form-control" id="txtMobile" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="txtUsername" class="label label-default">User ID (Login ID)</label>
+                                                <input type="text" placeholder="User ID" class="form-control" id="txtNewUsername" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="chkTnC" data-sillyform-causesvalidation="true">
+                                                <label class="form-check-label" for="chkTnC">I have read and agree to the <a href="~/TermsOfUse" target="_new" runat="server">Terms of use</a></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 text-danger" data-sillyform-role="validation-summary">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="formAdmin_SecurityInfo" class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="txtUsername" class="label label-default">User ID (Login ID)</label>
+                                                <input type="text" placeholder="User ID" class="form-control" id="txtUsername_ro" disabled="disabled">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="txtPassword" class="label label-default">Enter Password</label>
+                                                <input type="password" placeholder="Password" class="form-control" id="txtNewPassword" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="txtConfirmPassword" class="label label-default">Confirm Password</label>
+                                                <input type="password" placeholder="Password" class="form-control" id="txtConfirmNewPassword" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="txtSecretQuestion" class="label label-default">Secret Question</label>
+                                                <input type="text" placeholder="We will ask this in case you forgot password" class="form-control" id="txtSecretQuestion">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="txtSecretAnswer" class="label label-default">Secret Answer</label>
+                                                <input type="text" placeholder="Your answer to the secret question" class="form-control" id="txtSecretAnswer">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 text-danger" data-sillyform-role="validation-summary">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container" id="formOTP">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="txtOTP" class="label label-default">Enter your OTP</label>
+                                                <input type="text" placeholder="OTP" class="form-control" id="txtOTP" data-sillyform-causesvalidation="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-danger" data-sillyform-role="validation-summary">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right" data-sillywizard-role="nav-container">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container text-muted text-center small">
+            SillyApp &copy; Abhay Bhave, GIPL, 2018
+        </div>
+    </div>
+    <!-- Detached forms -->
+    <div id="formLogin" class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group has-feedback">
+                    <label for="txtUsername" class="label label-default">Enter user name</label>
+                    <input type="text" placeholder="User Name" class="form-control" id="txtUsername" data-sillyform-causesvalidation="true">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group has-feedback">
+                    <label for="txtPassword" class="label label-default">Enter password</label>
+                    <input type="password" placeholder="Password" class="form-control" id="txtPassword" data-sillyform-causesvalidation="true">
+                </div>
+            </div>
+            <div class="col-12" data-sillyform-role="validation-summary">
+
+            </div>
+        </div>
+    </div>
+    <div id="formBusiness" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group has-feedback">
+                    <label for="txtBusinessName" class="label label-default">Business Name</label>
+                    <input type="text" placeholder="Business Name" class="form-control" id="txtBusinessName" data-sillyform-causesvalidation="true">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group has-feedback">
+                    <label for="txtBusinessShortName" class="label label-default">Business Short Name</label>
+                    <input type="text" placeholder="Business Short Name" class="form-control" id="txtBusinessShortName" data-sillyform-causesvalidation="true">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group has-feedback">
+                    <label for="txtBusinessAddrL1" class="label label-default">Address Line 1</label>
+                    <input type="text" placeholder="Business Address Line 1" class="form-control" id="txtBusinessAddrL1" data-sillyform-causesvalidation="true">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group has-feedback">
+                    <label for="txtBusinessAddrL2" class="label label-default">Address Line 2</label>
+                    <input type="text" placeholder="Business Address Line 2" class="form-control" id="txtBusinessAddrL2" data-sillyform-causesvalidation="true">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group has-feedback">
+                    <label for="txtBusinessCity" class="label label-default">City</label>
+                    <input type="text" placeholder="City" class="form-control" id="txtBusinessCity" data-sillyform-causesvalidation="true">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group has-feedback">
+                    <label for="txtBusinessDisrtict" class="label label-default">Disrtict</label>
+                    <input type="text" placeholder="Disrtict" class="form-control" id="txtBusinessDistrict" data-sillyform-causesvalidation="true">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group has-feedback">
+                    <label for="txtBusinessState" class="label label-default">State</label>
+                    <input type="text" placeholder="State" class="form-control" id="txtBusinessState" data-sillyform-causesvalidation="true">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group has-feedback">
+                    <label for="txtBusinessCountryCode" class="label label-default">Country Code</label>
+                    <input type="text" placeholder="Country Code" class="form-control" id="txtBusinessCountryCode" data-sillyform-causesvalidation="true">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="text-danger" data-sillyform-role="validation-summary"></div>
+            </div>
+        </div>
+        <div data-sillyapp-role="dialog" class="modal" role="dialog" style="background-color: rgba(0, 0, 0, 0.5);">
+            <div class="modal-dialog container">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Title</h4>
+                        <button type="button" class="close" title="Escape">×</button>
+                    </div>
+                    <div class="modal-body">
+                        Message
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="CryptoJS/sha512.js"></script>
+    <script type="text/javascript" src="test.app.js"></script>
+    <script type="text/javascript" src="tests_main.js"></script>
+</body>
+</html>
