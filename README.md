@@ -1,37 +1,35 @@
-## Welcome to GitHub Pages
+## Welcome to SillyApp
+A Silly Simple, minimalistic JS app framework for browser
 
-You can use the [editor on GitHub](https://github.com/bhave-abhay/sillyapp/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+### Requirements
+1. Bootstrap
+2. JQuery
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
+### How to use
 ```markdown
-Syntax highlighted code block
+//Basic Usage:-
 
-# Header 1
-## Header 2
-### Header 3
+var app = new SillyApp();
+window.alert = app.show_alert.bind(app);
 
-- Bulleted
-- List
+//And then,
+//Of course, some [minimal] additional mark-up in html,
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+app.show_dialog(
+  'Dialog Title',
+  'Dialog text goes her. For simple dialogs, it\'s simply string. For more complex interaction, you can use SillyForm feature'
+).buttons([{
+  'sText': 'Button 1',
+  'cssClasses': 'btn-warning',
+  'onClick': function(){
+    app.hide_dialog();
+  }
+},{
+  'sText': 'Button 2',
+  'cssClasses': 'btn-danger',
+  'onClick': function(){
+    app.hide_dialog();
+    alert('Button 2 pressed', 'alert-info', 3 /*sec timout*/);
+  }
+}]);
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/bhave-abhay/sillyapp/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
