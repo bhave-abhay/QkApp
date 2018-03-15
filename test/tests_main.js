@@ -65,7 +65,10 @@ $(function () {
             }, {
                 'sText': 'Cancel',
                 'cssClasses': 'btn-danger',
-                'onClick': function () { app.hide_dialog(); }
+                'onClick': function () {
+					app.hide_dialog();
+					alert('Login calcelled!', 'alert-danger');
+				}
             }]);
     }
 
