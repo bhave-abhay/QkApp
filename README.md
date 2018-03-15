@@ -44,7 +44,7 @@ app.show_dialog(
   }
 }]);
 ```
-###Silly forms
+#### Silly forms
 	This widget provides a thin wrapper around html forms with ability to
 	read/write data as a whole object represented in the form rather than
 	individual bits and pieces. It allows you to read a form's "silly value".
@@ -55,7 +55,7 @@ app.show_dialog(
 	or is `undefined`.
 
 	The sample login form in demo is created as follows:
-####html
+##### html
 ```html
 <div id="formLogin" class="container">
 	<div class="row">
@@ -77,7 +77,7 @@ app.show_dialog(
 	</div>
 </div>
 ```
-#####additional html mark-up
+##### additional html mark-up
 1. `data-sillyform-causesvalidation="true"`
 	- This attribute can be used on input of any control in a silly form.
 	- With this attribute set to true, the sillyform is validated on change of the input
@@ -85,7 +85,7 @@ app.show_dialog(
 	- This attribute can be used on any container in the silly form.
 	- The ul element containing validation messages list items is appended to this element.
 
-####javascript
+##### javascript
 ```javascript
 var formLogin = $('#formLogin').SillyForm({
         cbGetData: function () {
