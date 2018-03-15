@@ -187,7 +187,7 @@ $(function () {
         }
     });
     formOTP.on('sillyform:validate', function (e, vetoPoll) {
-        if ($('#txtVetoPoll').val() === '') {
+        if ($('#txtOTP').val() === '') {
             vetoPoll.veto('OTP not entered!', 'txtOTP');
         }
     });
