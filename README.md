@@ -44,7 +44,6 @@ app.show_dialog(
   }
 }]);
 ```
-
 ###Silly forms
 	This widget provides a thin wrapper around html forms with ability to
 	read/write data as a whole object represented in the form rather than
@@ -85,7 +84,7 @@ app.show_dialog(
 2. `data-sillyform-role="validation-summary"`
 	- This attribute can be used on any container in the silly form.
 	- The ul element containing validation messages list items is appended to this element.
-	
+
 ####javascript
 ```javascript
 var formLogin = $('#formLogin').SillyForm({
