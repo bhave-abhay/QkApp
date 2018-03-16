@@ -5,7 +5,8 @@ var app = new SillyApp($, {
         'cbDecorateRequestData': function (objRequestData) { // DecorateRequestData callback
             objDefault = {
 				'firstName': 'Suhas',
-				'lastName': 'Palkar'
+				'lastName': 'Palkar',
+				'limitTo': ['nerdy']
 			};
             var decorateRequestData = $.extend({ }, objDefault, objRequestData);
             return decorateRequestData;
