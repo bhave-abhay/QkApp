@@ -106,7 +106,7 @@
 							</div>
                         </div>
                         <div class="card-footer text-right">
-							<button class="btn btn-danger" id="btnRandomJoke">Get random chuck norris fact!</button>
+							<button class="btn btn-danger" id="btnRandomJoke">Get a random fact!</button>
                         </div>
                     </div>
                 </div>
@@ -122,6 +122,8 @@
 	        'sUrlBase': 'https://api.icndb.com/',
 	        'cbDecorateRequestData': function (objRequestData) { // DecorateRequestData callback
 	            objDefault = {
+					'firstName': 'Suhas',
+					'lastName': 'Palkar'
 				};
 	            var decorateRequestData = $.extend({ }, objDefault, objRequestData);
 	            return decorateRequestData;

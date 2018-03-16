@@ -4,6 +4,8 @@ var app = new SillyApp($, {
         'sUrlBase': 'https://api.icndb.com/',
         'cbDecorateRequestData': function (objRequestData) { // DecorateRequestData callback
             objDefault = {
+				'firstName': 'Suhas',
+				'lastName': 'Palkar'
 			};
             var decorateRequestData = $.extend({ }, objDefault, objRequestData);
             return decorateRequestData;
