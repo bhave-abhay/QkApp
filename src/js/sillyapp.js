@@ -73,7 +73,7 @@ var SillySession = function (sPrefix) {
 
 var SillyLoginManager = function (objLoginOptions) {
     this.objLoginOptions = objLoginOptions;
-    
+
 };
 SillyLoginManager.prototype.login = function (objCreds) {
     var this_ = this;
@@ -179,7 +179,7 @@ var SillyApp = function ($, objOptions) {
         };
 
         //init
-        jqElts.validationSummary.empty().addClass('text-danger').hide();
+        jqElts.validationSummary.empty().addClass('alert-warning').hide();
 
         if (objOptions === undefined) {
             objOptions = {};
@@ -296,6 +296,7 @@ var SillyApp = function ($, objOptions) {
             }
             arrFormInfo[jFormIndex].form.sillyval(formData);
             jqElts.wizard_frame_title.html(arrFormInfo[jFormIndex].title + ' <small>[' + (jFormIndex+1) + '/' + arrFormInfo.length + ']</small>');
+			$(arrFormInfo[jFormIndex].form.find('input:enabled')[0]).focus();
         }
         function fn_nav_next() {
             var fDone = false;

@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SillyApp demo</title>
-    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/4.0.0/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="../lib/bootstrap/4.0.0/bootstrap.css" />
     <script type="text/javascript" src="../lib/jquery/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="../lib/jquery/jquery-ui-1.12.1.js"></script>
-    <script type="text/javascript" src="../lib/bootstrap/4.0.0/bootstrap.js"></script>
+	<script type="text/javascript" src="../lib/bootstrap/4.0.0/bootstrap.js"></script>
     <script type="text/javascript" src="../src/js/sillyapp.js"></script>
 </head>
 <body>
@@ -92,13 +92,13 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="container" data-sillyapp-role="overlay-container">
-                    <h2>Main Content</h2>
+                    <h2>UI Demo</h2>
                     <div class="card" id="divWizard">
                         <div class="card-header">Make my business smarter!</div>
                         <div class="card-body">
                             <div class="card-title"><strong data-sillywizard-role="frame-title"></strong></div>
                             <div class="card-text" data-sillywizard-role="frame">
-                                <div class="container" id="formBusiness_basic">
+                                <div class="container-fluid" id="formBusiness_basic">
                                     <div class="row">
                                         <div class="col-md-8 col-sm-12 col-xs-12">
                                             <div class="form-group">
@@ -162,7 +162,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="container" id="formBusiness_contact">
+                                <div class="container-fluid" id="formBusiness_contact">
                                     <div class="row">
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
@@ -188,7 +188,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="formAdmin" class="container">
+                                <div class="container-fluid" id="formAdmin">
                                     <div class="row">
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
@@ -230,7 +230,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="formAdmin_SecurityInfo" class="container">
+                                <div class="container-fluid" id="formAdmin_SecurityInfo">
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="form-group">
@@ -266,7 +266,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="container" id="formOTP">
+                                <div class="container-fluid" id="formOTP">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
@@ -297,7 +297,7 @@
         </div>
     </div>
     <!-- Detached forms -->
-    <div id="formLogin" class="container">
+    <div id="formLogin" class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="form-group has-feedback">
@@ -333,7 +333,7 @@
 	</div>
 
     <script type="text/javascript" src="CryptoJS/sha512.js"></script>
-    <script type="text/javascript" src="test.app.js"></script>
-    <script type="text/javascript" src="tests_main.js"></script>
+    <script type="text/javascript" src="js/test.app.js"></script>
+    <script type="text/javascript" src="js/tests_main.js"></script>
 </body>
 </html>
