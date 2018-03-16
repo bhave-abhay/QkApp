@@ -1,8 +1,8 @@
 $(function () {
 	$('#btnRandomJoke').click(function(e){
-		app.api_get('jokes/random')
-			.done(function(rsp){
-				app.show_dialog('Data', '<pre>' + JSON.stringify(rsp, null, '\t') + '</pre>');
+		app.api_get('jokes/random', {}, 'value')
+			.done(function(value){
+				$('#divJokeText').html(value.joke);
 			})
 			.fail(alert);
 		e.preventDefault();

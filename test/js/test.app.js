@@ -1,14 +1,15 @@
 var app = new SillyApp($, {
 
     apiConfig: {
-        'sUrlBase': 'https://api.chucknorris.io/',
+        'sUrlBase': 'https://api.icndb.com/',
         'cbDecorateRequestData': function (objRequestData) { // DecorateRequestData callback
-            objDefault = { };
+            objDefault = {
+			};
             var decorateRequestData = $.extend({ }, objDefault, objRequestData);
             return decorateRequestData;
         },
         'cbResponseSuccessTest': function (rsp) { //Repsponse success test callback
-            return true;
+            return rsp.type==='success';
         }
     }/*,
     loginConfig: {
