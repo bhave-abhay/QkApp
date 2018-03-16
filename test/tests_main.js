@@ -34,19 +34,6 @@ $(function () {
     });
     formLogin.hide();
 
-    var formBusiness = $('#formBusiness').SillyForm({
-        cbGetData: function () {
-            return {
-            };
-        },
-        cbShowData: function (objData) {
-        }
-    });
-    formBusiness.on('sillyform:validate', function (evt, vetoPoll) {
-
-    });
-    formBusiness.hide();
-
     function fn_show_login_dialog() {
         app.show_dialog('Login', formLogin, { 'sUserId': 'Abhay.Bhave' })
             .buttons([{
