@@ -10,7 +10,7 @@ A Silly Simple, minimalistic JS app framework for browser
 Basic Usage:-
 ```javascript
 
-var app = new SillyApp();
+var app = new SillyApp($, {});
 window.alert = app.show_alert.bind(app);
 ```
 #### Additional html mark-up
