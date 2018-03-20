@@ -1,5 +1,6 @@
 ## Welcome to QkApp
 A Qk Simple, minimalistic JS app framework for browser
+[![GitHub Starts](https://img.shields.io/github/stars/bhave-abhay/QkApp.svg?style=social&label=Star)](https://github.com/bhave-abhay/QkApp/stargazers)
 
 ### Requirements
 1. Bootstrap 4.0
