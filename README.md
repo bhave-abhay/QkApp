@@ -10,7 +10,11 @@ A Qk Simple, minimalistic JS app framework for browser
 Basic Usage:-
 ```javascript
 
+<<<<<<< HEAD
 var app = new QkApp();
+=======
+var app = new SillyApp($, {});
+>>>>>>> bf6810296c2832f3f28d5a5e28ae650ee0fe45e3
 window.alert = app.show_alert.bind(app);
 ```
 #### Additional html mark-up
