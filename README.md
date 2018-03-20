@@ -8,6 +8,8 @@ A Qk Simple, minimalistic JS app framework for browser
 ### Demo
 [See demo](https://bhave-abhay.github.io/qkapp/demo/)
 
+### Docs
+[Read docs](https://bhave-abhay.github.io/qkapp/docs/)
 ### How to use
 
 Basic Usage:-

@@ -1,10 +1,8 @@
-# QkApp
-
-## Introduction
+# Introduction
 
 QkApp is a minimalist Web browser / JS app framework built on BootStrap and JQuery.
 
-### Basic Usage
+## Basic Usage
 ```javascript
 var app = new QkApp($, {});
 window.alert = app.show_dialog.bind(app);
@@ -43,3 +41,5 @@ Anywhere in your page body, any container element can be assigned a property
 the default alert container for QkApp. Thus, if this attribute is set on the desired container,
 with the above basic constructor and window.alert function binding, you can access this feature
 via your standard (or with additional QkAlert params) window.alert calls.
+
+You can see this approach in action [here](./demo/index.html)
