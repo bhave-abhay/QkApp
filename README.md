@@ -160,7 +160,7 @@ app.show_dialog(
   }
 }]);
 ```
-#####Usage with QkForms
+##### Usage with QkForms
 It provides `.buttons([{...}, ...])` api for adding buttons and assigning their
 respective display classes and click handlers.
 The click handler assigned to a QkDialog button receives a dialogState object.
