@@ -5,16 +5,14 @@ A Qk Simple, minimalistic JS app framework for browser
 1. Bootstrap 4.0
 2. JQuery 3.3.1
 
+### Demo
+[See demo](https://bhave-abhay.github.io/qkapp/demo/)
+
 ### How to use
 
 Basic Usage:-
 ```javascript
-
-<<<<<<< HEAD
 var app = new QkApp();
-=======
-var app = new SillyApp($, {});
->>>>>>> bf6810296c2832f3f28d5a5e28ae650ee0fe45e3
 window.alert = app.show_alert.bind(app);
 ```
 #### Additional html mark-up
@@ -114,6 +112,3 @@ var formLogin = $('#formLogin').QkForm({
         }
     });
 ```
-### Demo
-[A demo with qk wizard sporting a few qk forms in a qk app...](https://bhave-abhay.github.io/qkapp/test/)
-Yeah... it's a qk world!
