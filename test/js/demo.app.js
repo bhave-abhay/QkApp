@@ -1,4 +1,4 @@
-var app = new SillyApp($, {
+var app = new QkApp($, {
 
     apiConfig: {
         'sUrlBase': 'https://api.icndb.com/',
@@ -32,17 +32,17 @@ var app = new SillyApp($, {
     */
 });
 /*
-$(document).on('SillyLoginManager:SessionValidatationSuccess', function (evt, resp) {
+$(document).on('QkLoginManager:SessionValidatationSuccess', function (evt, resp) {
 
 });
-$(document).on('SillyLoginManager:SessionValidatationFailure', function (evt, resp) {
+$(document).on('QkLoginManager:SessionValidatationFailure', function (evt, resp) {
 
 });
 
-$(document).on('SillyLoginManager:LoginSuccess', function (evt, resp) {
+$(document).on('QkLoginManager:LoginSuccess', function (evt, resp) {
     window.location.replace('CPUsers.aspx');
 });
-$(document).on('SillyLoginManager:LogoutSuccess', function (evt, resp) {
+$(document).on('QkLoginManager:LogoutSuccess', function (evt, resp) {
     window.location.replace('Default.aspx');
 });
 app.validateSession();

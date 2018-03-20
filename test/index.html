@@ -4,19 +4,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SillyApp demo</title>
+    <title>QkApp demo</title>
 	<link rel="stylesheet" type="text/css" href="../lib/bootstrap/4.0.0/bootstrap.css" />
     <script type="text/javascript" src="../lib/jquery/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="../lib/jquery/jquery-ui-1.12.1.js"></script>
 	<script type="text/javascript" src="../lib/bootstrap/4.0.0/bootstrap.js"></script>
-    <script type="text/javascript" src="../src/js/sillyapp.js"></script>
+    <script type="text/javascript" src="../src/js/QkApp.js"></script>
 </head>
 <body>
     <div class="container body-content" style="display: flex; flex-direction: column;">
         <div class="row sticky-top">
             <div class="col-12" id="TopBar">
                 <nav id="MainNav" class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#">Silly App</a>
+                    <a class="navbar-brand" href="#">Qk App</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -93,29 +93,29 @@
                     </div>
                 </nav>
             </div>
-            <div class="col-12" data-sillyapp-role="alert-container"></div>
+            <div class="col-12" data-qkapp-role="alert-container"></div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="container" data-sillyapp-role="overlay-container">
+                <div class="container" data-qkapp-role="overlay-container">
                     <h2>UI Demo</h2>
                     <div class="card" id="divWizard">
                         <div class="card-header">Make my business smarter!</div>
                         <div class="card-body">
-                            <div class="card-title"><strong data-sillywizard-role="frame-title"></strong></div>
-                            <div class="card-text" data-sillywizard-role="frame">
+                            <div class="card-title"><strong data-qkwizard-role="frame-title"></strong></div>
+                            <div class="card-text" data-qkwizard-role="frame">
                                 <div class="container-fluid" id="formBusiness_basic">
                                     <div class="row">
                                         <div class="col-md-8 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtBusinessFullName" class="label label-default">Full name of the Business</label>
-                                                <input type="text" placeholder="Full name of the Business" class="form-control" id="txtBusinessFullName" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="Full name of the Business" class="form-control" id="txtBusinessFullName" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtBusinessShortName" class="label label-default">Business name (abbr.)</label>
-                                                <input type="text" placeholder="Business name (abbr.)" class="form-control" id="txtBusinessShortName" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="Business name (abbr.)" class="form-control" id="txtBusinessShortName" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                     </div>
@@ -123,48 +123,48 @@
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtAddressL1" class="label label-default">Address (Line 1)</label>
-                                                <input type="text" placeholder="Address (Line 1)" class="form-control" id="txtAddressL1" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="Address (Line 1)" class="form-control" id="txtAddressL1" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtAddressL2" class="label label-default">Address (Line 2)</label>
-                                                <input type="text" placeholder="Address (Line 2)" class="form-control" id="txtAddressL2" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="Address (Line 2)" class="form-control" id="txtAddressL2" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtBusinessCity" class="label label-default">City</label>
-                                                <input type="text" placeholder="City" class="form-control" id="txtBusinessCity" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="City" class="form-control" id="txtBusinessCity" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtBusinessDistrict" class="label label-default">District</label>
-                                                <input type="text" placeholder="District" class="form-control" id="txtBusinessDistrict" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="District" class="form-control" id="txtBusinessDistrict" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtBusinessPostalCode" class="label label-default">Postal Code</label>
-                                                <input type="text" placeholder="Postal Coded" class="form-control" id="txtBusinessPostalCode" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="Postal Coded" class="form-control" id="txtBusinessPostalCode" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtBusinessState" class="label label-default">State</label>
-                                                <input type="text" placeholder="State" class="form-control" id="txtBusinessState" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="State" class="form-control" id="txtBusinessState" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtBusinessCountryCode" class="label label-default">Country Code</label>
-                                                <input type="text" placeholder="Country Code" class="form-control" id="txtBusinessCountryCode" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="Country Code" class="form-control" id="txtBusinessCountryCode" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12 text-danger" data-sillyform-role="validation-summary">
+                                        <div class="col-md-12 text-danger" data-qkform-role="validation-summary">
                                         </div>
                                     </div>
                                 </div>
@@ -173,24 +173,24 @@
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtBusinessPhoneNumber1" class="label label-default">Phone Number 1</label>
-                                                <input type="text" placeholder="Phone Number 1" class="form-control" id="txtBusinessPhoneNumber1" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="Phone Number 1" class="form-control" id="txtBusinessPhoneNumber1" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtBusinessPhoneNumber2" class="label label-default">Phone Number 2</label>
-                                                <input type="text" placeholder="Phone Number 2" class="form-control" id="txtBusinessPhoneNumber2" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="Phone Number 2" class="form-control" id="txtBusinessPhoneNumber2" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtBusinessEmail" class="label label-default">email Id</label>
-                                                <input type="text" placeholder="Business Email Id" class="form-control" id="txtBusinessEmail" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="Business Email Id" class="form-control" id="txtBusinessEmail" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12 text-danger" data-sillyform-role="validation-summary">
+                                        <div class="col-md-12 text-danger" data-qkform-role="validation-summary">
                                         </div>
                                     </div>
                                 </div>
@@ -199,7 +199,7 @@
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtFirstName" class="label label-default">First Name</label>
-                                                <input type="text" placeholder="First Name" class="form-control" id="txtFirstName" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="First Name" class="form-control" id="txtFirstName" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12 col-xs-12">
@@ -211,28 +211,28 @@
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtEMail" class="label label-default">email ID</label>
-                                                <input type="text" placeholder="email ID" class="form-control" id="txtEMail" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="email ID" class="form-control" id="txtEMail" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtMobile" class="label label-default">Mobile Number</label>
-                                                <input type="text" placeholder="Mobile Number" class="form-control" id="txtMobile" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="Mobile Number" class="form-control" id="txtMobile" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtUsername" class="label label-default">User ID (Login ID)</label>
-                                                <input type="text" placeholder="User ID" class="form-control" id="txtNewUsername" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="User ID" class="form-control" id="txtNewUsername" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="chkTnC" data-sillyform-causesvalidation="true">
+                                                <input type="checkbox" class="form-check-input" id="chkTnC" data-qkform-causesvalidation="true">
                                                 <label class="form-check-label" for="chkTnC">I have read and agree to the <a href="~/TermsOfUse" target="_new" runat="server">Terms of use</a></label>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 text-danger" data-sillyform-role="validation-summary">
+                                        <div class="col-md-12 text-danger" data-qkform-role="validation-summary">
                                         </div>
                                     </div>
                                 </div>
@@ -247,13 +247,13 @@
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtPassword" class="label label-default">Enter Password</label>
-                                                <input type="password" placeholder="Password" class="form-control" id="txtNewPassword" data-sillyform-causesvalidation="true">
+                                                <input type="password" placeholder="Password" class="form-control" id="txtNewPassword" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label for="txtConfirmPassword" class="label label-default">Confirm Password</label>
-                                                <input type="password" placeholder="Password" class="form-control" id="txtConfirmNewPassword" data-sillyform-causesvalidation="true">
+                                                <input type="password" placeholder="Password" class="form-control" id="txtConfirmNewPassword" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -268,7 +268,7 @@
                                                 <input type="text" placeholder="Your answer to the secret question" class="form-control" id="txtSecretAnswer">
                                             </div>
                                         </div>
-                                        <div class="col-md-12 text-danger" data-sillyform-role="validation-summary">
+                                        <div class="col-md-12 text-danger" data-qkform-role="validation-summary">
                                         </div>
                                     </div>
                                 </div>
@@ -277,20 +277,20 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="txtOTP" class="label label-default">Enter your OTP</label>
-                                                <input type="text" placeholder="OTP" class="form-control" id="txtOTP" data-sillyform-causesvalidation="true">
+                                                <input type="text" placeholder="OTP" class="form-control" id="txtOTP" data-qkform-causesvalidation="true">
                                             </div>
                                         </div>
-                                        <div class="col-md-12 text-danger" data-sillyform-role="validation-summary">
+                                        <div class="col-md-12 text-danger" data-qkform-role="validation-summary">
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12 text-danger" data-sillyform-role="validation-summary">
+                                        <div class="col-md-12 text-danger" data-qkform-role="validation-summary">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer text-right" data-sillywizard-role="nav-container">
+                        <div class="card-footer text-right" data-qkwizard-role="nav-container">
                         </div>
                     </div>
                 </div>
@@ -299,7 +299,7 @@
     </div>
     <div class="footer">
         <div class="container text-muted text-center small">
-            SillyApp &copy; Abhay Bhave, GIPL, 2018
+            QkApp &copy; Abhay Bhave, GIPL, 2018
         </div>
     </div>
     <!-- Detached forms -->
@@ -308,21 +308,21 @@
             <div class="col-12">
                 <div class="form-group has-feedback">
                     <label for="txtUsername" class="label label-default">Enter user name</label>
-                    <input type="text" placeholder="User Name" class="form-control" id="txtUsername" data-sillyform-causesvalidation="true">
+                    <input type="text" placeholder="User Name" class="form-control" id="txtUsername" data-qkform-causesvalidation="true">
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-group has-feedback">
                     <label for="txtPassword" class="label label-default">Enter password</label>
-                    <input type="password" placeholder="Password" class="form-control" id="txtPassword" data-sillyform-causesvalidation="true">
+                    <input type="password" placeholder="Password" class="form-control" id="txtPassword" data-qkform-causesvalidation="true">
                 </div>
             </div>
-            <div class="col-12" data-sillyform-role="validation-summary">
+            <div class="col-12" data-qkform-role="validation-summary">
 
             </div>
         </div>
     </div>
-	<div data-sillyapp-role="dialog" class="modal" role="dialog" style="background-color: rgba(0, 0, 0, 0.5);">
+	<div data-qkapp-role="dialog" class="modal" role="dialog" style="background-color: rgba(0, 0, 0, 0.5);">
 		<div class="modal-dialog container">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -339,7 +339,7 @@
 	</div>
 
     <script type="text/javascript" src="CryptoJS/sha512.js"></script>
-    <script type="text/javascript" src="js/test.app.js"></script>
-    <script type="text/javascript" src="js/tests_main.js"></script>
+    <script type="text/javascript" src="js/demo.app.js"></script>
+    <script type="text/javascript" src="js/demo.ui.js"></script>
 </body>
 </html>

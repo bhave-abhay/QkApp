@@ -1,4 +1,4 @@
-var SillyAPIGateway = function (objOptions) {
+var QkAPIGateway = function (objOptions) {
     this.objOptions = objOptions;
     this.prom = function (xhr, sResponseDataKey) {
         var this_ = this;
@@ -41,7 +41,7 @@ var SillyAPIGateway = function (objOptions) {
         return dfd.promise();
     };
 };
-SillyAPIGateway.prototype.GET = function (sResourceURL, objRequestData, sResponseDataKey) {
+QkAPIGateway.prototype.GET = function (sResourceURL, objRequestData, sResponseDataKey) {
     var objRequestDataDecorated = this.objOptions.cbDecorateRequestData(objRequestData);
     var sRequestParams = Object.keys(objRequestDataDecorated).map(function (sKey) {
         return encodeURIComponent(sKey) + '=' + encodeURIComponent(objRequestDataDecorated[sKey]);
@@ -49,7 +49,7 @@ SillyAPIGateway.prototype.GET = function (sResourceURL, objRequestData, sRespons
     var urlCall = this.objOptions.sUrlBase + sResourceURL + '/?' + sRequestParams;
     return this.prom($.getJSON(urlCall), sResponseDataKey);
 };
-SillyAPIGateway.prototype.POST = function (sResourceURL, objDataToPost, sResponseDataKey) {
+QkAPIGateway.prototype.POST = function (sResourceURL, objDataToPost, sResponseDataKey) {
     var objRequestDataDecorated = this.objOptions.cbDecorateRequestData(objDataToPost);
     return this.prom($.ajax({
         type: 'POST',
@@ -59,7 +59,8 @@ SillyAPIGateway.prototype.POST = function (sResourceURL, objDataToPost, sRespons
     }), sResponseDataKey);
 };
 
-var SillySession = function (sPrefix) {
+var QkSession = function (sPrefix) {
+
     this.getItem = function (sName) {
         return window.sessionStorage.getItem(sPrefix + sName);
     };
@@ -71,13 +72,13 @@ var SillySession = function (sPrefix) {
     };
 };
 
-var SillyLoginManager = function (objLoginOptions) {
+var QkLoginManager = function (objLoginOptions) {
     this.objLoginOptions = objLoginOptions;
 
 };
-SillyLoginManager.prototype.login = function (objCreds) {
+QkLoginManager.prototype.login = function (objCreds) {
     var this_ = this;
-    $(document).trigger('SillyLoginManager:LoginAttempt');
+    $(document).trigger('QkLoginManager:LoginAttempt');
     return this_.objLoginOptions.cbLoginProm(objCreds)
         .done(function (resp) {
             if (resp.propertyIsEnumerable(this_.objLoginOptions.sessionRefKey)) {
@@ -89,29 +90,29 @@ SillyLoginManager.prototype.login = function (objCreds) {
             }
             $('.usermenu').show();
             $('.visitormenu').hide();
-            $(document).trigger('SillyLoginManager:LoginSuccess', resp);
+            $(document).trigger('QkLoginManager:LoginSuccess', resp);
         })
         .fail(function (err) {
-            $(document).trigger('SillyLoginManager:LoginFailure', err);
+            $(document).trigger('QkLoginManager:LoginFailure', err);
         });
 };
-SillyLoginManager.prototype.logout = function () {
+QkLoginManager.prototype.logout = function () {
     var this_ = this;
-    $(document).trigger('SillyLoginManager:LogoutAttempt');
+    $(document).trigger('QkLoginManager:LogoutAttempt');
     return this_.objLoginOptions.cbLogoutProm()
         .done(function (resp) {
             window.sessionStorage.removeItem(this_.objLoginOptions.sessionRefKey);
             $('.usermenu').hide();
             $('.visitormenu').show();
-            $(document).trigger('SillyLoginManager:LogoutSuccess', resp);
+            $(document).trigger('QkLoginManager:LogoutSuccess', resp);
         })
         .fail(function (err) {
-            $(document).trigger('SillyLoginManager:LogoutFailure', err);
+            $(document).trigger('QkLoginManager:LogoutFailure', err);
         });
 };
-SillyLoginManager.prototype.validateSession = function () {
+QkLoginManager.prototype.validateSession = function () {
     var this_ = this;
-    $(document).trigger('SillyLoginManager:SessionValidaionAttempt');
+    $(document).trigger('QkLoginManager:SessionValidaionAttempt');
     return this_.objLoginOptions.cbValidateSessionProm()
         .done(function (resp) {
             if (resp.propertyIsEnumerable(this_.objLoginOptions.sessionRefKey)) {
@@ -121,16 +122,16 @@ SillyLoginManager.prototype.validateSession = function () {
                 window.sessionStorage.setItem(this_.objLoginOptions.userInfoKey, JSON.stringify(resp[this_.objLoginOptions.userInfoKey]));
                 this_.objLoginOptions.cbUserInfo(resp[this_.objLoginOptions.userInfoKey]);
             }
-            $(document).trigger('SillyLoginManager:SessionValidaionSuccess', resp);
+            $(document).trigger('QkLoginManager:SessionValidaionSuccess', resp);
         })
         .fail(function (err) {
-            $(document).trigger('SillyLoginManager:SessionValidaionFailure');
+            $(document).trigger('QkLoginManager:SessionValidaionFailure');
         });
 };
-SillyLoginManager.prototype.isLoggedIn = function () {
+QkLoginManager.prototype.isLoggedIn = function () {
     return window.sessionStorage.getItem(this.objLoginOptions.sessionRefKey) !== null;
 };
-SillyLoginManager.prototype.getAccessToken = function () {
+QkLoginManager.prototype.getAccessToken = function () {
     var tokenJson = window.sessionStorage.getItem(this.objLoginOptions.sessionRefKey);
     var token = '';
     if (tokenJson !== null) {
@@ -138,11 +139,11 @@ SillyLoginManager.prototype.getAccessToken = function () {
     }
     return token;
 };
-SillyLoginManager.prototype.getCurrentUserInfo = function () {
+QkLoginManager.prototype.getCurrentUserInfo = function () {
     return JSON.parse(window.sessionStorage.getItem(this.objLoginOptions.userInfoKey));
 };
 
-var SillyApp = function ($, objOptions) {
+var QkApp = function ($, objOptions) {
     'use strict';
 
     var Vetoable = function () {
@@ -167,7 +168,7 @@ var SillyApp = function ($, objOptions) {
             return null;
         };
     };
-    var SillyForm = function (objOptions) {
+    var QkForm = function (objOptions) {
         //Defaults
         var _handlers = {
             cbGetData: function () { return {}; },
@@ -175,7 +176,7 @@ var SillyApp = function ($, objOptions) {
             cbOnDirty: function () { }
         };
         var jqElts = {
-            validationSummary: $(this.find('*[data-sillyform-role="validation-summary"]')[0])
+            validationSummary: $(this.find('*[data-qkform-role="validation-summary"]')[0])
         };
 
         //init
@@ -194,7 +195,7 @@ var SillyApp = function ($, objOptions) {
         //event handlers
         {
             let this_form = this;
-            this_form.on('change', '*[data-sillyform-causesvalidation="true"]', function () {
+            this_form.on('change', '*[data-qkform-causesvalidation="true"]', function () {
                 this_form.validate();
             });
         }
@@ -202,9 +203,9 @@ var SillyApp = function ($, objOptions) {
 
         //members
         this.validate = function () {
-            var evt = new $.Event("sillyform:validate");
+            var evt = new $.Event("qkform:validate");
             var vetoPoll = new Vetoable();
-            $('*[data-sillyform-causesvalidation="true"]', this)
+            $('*[data-qkform-causesvalidation="true"]', this)
                 .removeClass('bg-warning');
             jqElts.validationSummary.empty().hide();
             this.trigger(evt, vetoPoll);
@@ -228,7 +229,7 @@ var SillyApp = function ($, objOptions) {
             return true;
         };
 
-        this.sillyval = function (newVal) {
+        this.qkval = function (newVal) {
             if (newVal === undefined) { //Get
                 if (this.validate()) {
                     return _handlers.cbGetData();
@@ -236,18 +237,18 @@ var SillyApp = function ($, objOptions) {
                 return undefined;
             } else { //Set
                 _handlers.cbShowData(newVal);
-                $('*[data-sillyform-causesvalidation="true"]', this).removeClass('bg-warning');
+                $('*[data-qkform-causesvalidation="true"]', this).removeClass('bg-warning');
                 jqElts.validationSummary.empty().hide();
             }
         };
         return this;
     };
-    function SillyWizard(objOptions) {
+    function QkWizard(objOptions) {
 
         var jqElts = {
-            wizard_frame: $(this.find('*[data-sillywizard-role="frame"]')[0]),
-            wizard_frame_title: $(this.find('*[data-sillywizard-role="frame-title"]')[0]),
-            wizard_nav_container: $(this.find('*[data-sillywizard-role="nav-container"]')[0]),
+            wizard_frame: $(this.find('*[data-qkwizard-role="frame"]')[0]),
+            wizard_frame_title: $(this.find('*[data-qkwizard-role="frame-title"]')[0]),
+            wizard_nav_container: $(this.find('*[data-qkwizard-role="nav-container"]')[0]),
             btn_prev: $('<button></button>')
                         .addClass(objOptions.buttons.btnPrev.sCssClasses)
                         .addClass('float-left')
@@ -294,7 +295,7 @@ var SillyApp = function ($, objOptions) {
                     formData = ref;
                 }
             }
-            arrFormInfo[jFormIndex].form.sillyval(formData);
+            arrFormInfo[jFormIndex].form.qkval(formData);
             jqElts.wizard_frame_title.html(arrFormInfo[jFormIndex].title + ' <small>[' + (jFormIndex+1) + '/' + arrFormInfo.length + ']</small>');
 			$(arrFormInfo[jFormIndex].form.find('input:enabled')[0]).focus();
         }
@@ -303,7 +304,7 @@ var SillyApp = function ($, objOptions) {
             if (jCurrFormIndex === arrFormInfo.length - 1) {
                 fDone = true;
             }
-            var formData = arrFormInfo[jCurrFormIndex].form.sillyval();
+            var formData = arrFormInfo[jCurrFormIndex].form.qkval();
             if (formData !== undefined) {
                 arrData[jCurrFormIndex] = formData;
                 var jNextFormIndex = jCurrFormIndex + 1;
@@ -311,12 +312,12 @@ var SillyApp = function ($, objOptions) {
                     fn_show_form(jNextFormIndex);
                 }
                 else if (fDone) {
-                    this_wizard.trigger('sillywizard:done', arrData);
+                    this_wizard.trigger('qkwizard:done', arrData);
                 }
             }
         }
         function fn_nav_prev() {
-            var formData = arrFormInfo[jCurrFormIndex].form.sillyval();
+            var formData = arrFormInfo[jCurrFormIndex].form.qkval();
             if (formData !== undefined) {
                 arrData[jCurrFormIndex] = formData;
             }
@@ -330,7 +331,7 @@ var SillyApp = function ($, objOptions) {
 
         return this;
     }
-    var SillyDialog = function () {
+    var QkDialog = function () {
         var timerID = null;
         var cbOnTimeout = null;
         var cbOnClose = null;
@@ -382,11 +383,11 @@ var SillyApp = function ($, objOptions) {
             }
             jqElts.dialog_dialogForm = null;
             if (typeof objMessage === 'string') {
-                jqElts.dialog_dialogForm = $('<div></div>').append(objMessage).SillyForm();
+                jqElts.dialog_dialogForm = $('<div></div>').append(objMessage).QkForm();
             } else if (objMessage instanceof $) {
                 jqElts.dialog_dialogForm = objMessage.show();
             }
-            $('*[data-sillyform-causesvalidation="true"]', jqElts.dialog_dialogForm).removeClass('bg-warning');
+            $('*[data-qkform-causesvalidation="true"]', jqElts.dialog_dialogForm).removeClass('bg-warning');
             jqElts.dialog_message.html(jqElts.dialog_dialogForm);
             this_dialog.on('shown.bs.modal', function () {
                 if (nTimeoutSec !== undefined) {
@@ -397,7 +398,7 @@ var SillyApp = function ($, objOptions) {
                     timerID = setTimeout(this_dialog.hide_dialog, nTimeoutSec * 1000 /*milliseconds*/);
                 }
                 if (objFormData !== undefined) {
-                    jqElts.dialog_dialogForm.sillyval(objFormData);
+                    jqElts.dialog_dialogForm.qkval(objFormData);
                 }
                 $(document, jqElts.dialog).keyup(function (e) {
                     if (e.keyCode === 27) { // escape key
@@ -434,7 +435,7 @@ var SillyApp = function ($, objOptions) {
                             fValid: jqElts.dialog_dialogForm.validate()
                         };
                         if (dialogState.fValid) {
-                            dialogState.formData = jqElts.dialog_dialogForm.sillyval();
+                            dialogState.formData = jqElts.dialog_dialogForm.qkval();
                         }
                         btn.onClick(dialogState);
                     })
@@ -450,7 +451,7 @@ var SillyApp = function ($, objOptions) {
         this.detach();
         return this;
     };
-    var SillyOverlay = function () {
+    var QkOverlay = function () {
         function CreateOverlayElt(sMsgHtml, sImgHtml) {
             if (sMsgHtml === undefined) {
                 sMsgHtml = '<h1>Loading... please wait!</h1>';
@@ -501,7 +502,7 @@ var SillyApp = function ($, objOptions) {
         };
         return this;
     };
-    var SillyAlert = function () {
+    var QkAlert = function () {
         function CreateAlertElt(msg, cssClass) {
             var elt = $('<div class="alert alert-dismissable"><span class="close" data-dismiss="alert" aria-label="close">X</span></div>');
             elt.addClass(cssClass);
@@ -529,44 +530,44 @@ var SillyApp = function ($, objOptions) {
     };
 
     //Add functions to JQuery namespace
-    $.fn.SillyForm = SillyForm;
-    $.fn.SillyWizard = SillyWizard;
-    $.fn.SillyDialog = SillyDialog;
-    $.fn.SillyOverlay = SillyOverlay;
-    $.fn.SillyAlert = SillyAlert;
+    $.fn.QkForm = QkForm;
+    $.fn.QkWizard = QkWizard;
+    $.fn.QkDialog = QkDialog;
+    $.fn.QkOverlay = QkOverlay;
+    $.fn.QkAlert = QkAlert;
 
     var initUI = function (thisApp, options) {
         var objOptionsDefault = {
-            'eltDialog': $(document).find('*[data-sillyapp-role="dialog"]')[0],
-            'eltOverlayContainer': $(document).find('*[data-sillyapp-role="overlay-container"]')[0],
-            'eltAlertContainer': $(document).find('*[data-sillyapp-role="alert-container"]')[0]
+            'eltDialog': $(document).find('*[data-qkapp-role="dialog"]')[0],
+            'eltOverlayContainer': $(document).find('*[data-qkapp-role="overlay-container"]')[0],
+            'eltAlertContainer': $(document).find('*[data-qkapp-role="alert-container"]')[0]
         };
         var objOptions = $.extend({}, objOptionsDefault, options);
 
-        var _silly_alert = $(objOptions.eltAlertContainer).SillyAlert();
-        thisApp.alert = _silly_alert.show_alert.bind(_silly_alert);
+        var _qk_alert = $(objOptions.eltAlertContainer).QkAlert();
+        thisApp.alert = _qk_alert.show_alert.bind(_qk_alert);
 
-        var _silly_dialog = $(objOptions.eltDialog).SillyDialog();
-        thisApp.show_dialog = _silly_dialog.show_dialog.bind(_silly_dialog);
-        thisApp.hide_dialog = _silly_dialog.hide_dialog.bind(_silly_dialog);
+        var _qk_dialog = $(objOptions.eltDialog).QkDialog();
+        thisApp.show_dialog = _qk_dialog.show_dialog.bind(_qk_dialog);
+        thisApp.hide_dialog = _qk_dialog.hide_dialog.bind(_qk_dialog);
 
-        var _silly_overlay = $(objOptions.eltOverlayContainer).SillyOverlay();
-        thisApp.show_overlay = _silly_overlay.show_overlay.bind(_silly_overlay);
-        thisApp.hide_overlay = _silly_overlay.hide_overlay.bind(_silly_overlay);
+        var _qk_overlay = $(objOptions.eltOverlayContainer).QkOverlay();
+        thisApp.show_overlay = _qk_overlay.show_overlay.bind(_qk_overlay);
+        thisApp.hide_overlay = _qk_overlay.hide_overlay.bind(_qk_overlay);
     };
     var initApiGateway = function (thisApp, options) {
-        var _silly_api = new SillyAPIGateway(options);
-        thisApp.api_get = SillyAPIGateway.prototype.GET.bind(_silly_api);
-        thisApp.api_post = SillyAPIGateway.prototype.POST.bind(_silly_api);
+        var _qk_api = new QkAPIGateway(options);
+        thisApp.api_get = QkAPIGateway.prototype.GET.bind(_qk_api);
+        thisApp.api_post = QkAPIGateway.prototype.POST.bind(_qk_api);
     };
     var initLoginManager = function (thisApp, options) {
-        var _silly_loginmanager = new SillyLoginManager(options);
-        thisApp.login = SillyLoginManager.prototype.login.bind(_silly_loginmanager);
-        thisApp.logout = SillyLoginManager.prototype.logout.bind(_silly_loginmanager);
-        thisApp.validateSession = SillyLoginManager.prototype.validateSession.bind(_silly_loginmanager);
-        thisApp.isLoggedIn = SillyLoginManager.prototype.isLoggedIn.bind(_silly_loginmanager);
-        thisApp.getAccessToken = SillyLoginManager.prototype.getAccessToken.bind(_silly_loginmanager);
-        thisApp.getCurrentUserInfo = SillyLoginManager.prototype.getCurrentUserInfo.bind(_silly_loginmanager);
+        var _qk_loginmanager = new QkLoginManager(options);
+        thisApp.login = QkLoginManager.prototype.login.bind(_qk_loginmanager);
+        thisApp.logout = QkLoginManager.prototype.logout.bind(_qk_loginmanager);
+        thisApp.validateSession = QkLoginManager.prototype.validateSession.bind(_qk_loginmanager);
+        thisApp.isLoggedIn = QkLoginManager.prototype.isLoggedIn.bind(_qk_loginmanager);
+        thisApp.getAccessToken = QkLoginManager.prototype.getAccessToken.bind(_qk_loginmanager);
+        thisApp.getCurrentUserInfo = QkLoginManager.prototype.getCurrentUserInfo.bind(_qk_loginmanager);
     };
     //Initialize app
     initUI(this, objOptions.uiConfig);

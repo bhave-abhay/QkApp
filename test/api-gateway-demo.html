@@ -4,19 +4,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SillyApp demo</title>
+    <title>QkApp demo</title>
 	<link rel="stylesheet" type="text/css" href="../lib/bootstrap/4.0.0/bootstrap.css" />
     <script type="text/javascript" src="../lib/jquery/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="../lib/jquery/jquery-ui-1.12.1.js"></script>
 	<script type="text/javascript" src="../lib/bootstrap/4.0.0/bootstrap.js"></script>
-    <script type="text/javascript" src="../src/js/sillyapp.js"></script>
+    <script type="text/javascript" src="../src/js/QkApp.js"></script>
 </head>
 <body>
     <div class="container body-content" style="display: flex; flex-direction: column;">
         <div class="row sticky-top">
             <div class="col-12" id="TopBar">
                 <nav id="MainNav" class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#">Silly App</a>
+                    <a class="navbar-brand" href="#">Qk App</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -93,11 +93,11 @@
                     </div>
                 </nav>
             </div>
-            <div class="col-12" data-sillyapp-role="alert-container"></div>
+            <div class="col-12" data-qkapp-role="alert-container"></div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="container" data-sillyapp-role="overlay-container">
+                <div class="container" data-qkapp-role="overlay-container">
 					<div class="card" id="divWizard">
                         <div class="card-header">API Gateway Demo</div>
                         <div class="card-body">
@@ -116,7 +116,7 @@
 		  	<div class="col-12">
 				<h3>Source code for above fetch:-</h3>
 		  		<pre>
-	var app = new SillyApp($, {
+	var app = new QkApp($, {
 
 	    apiConfig: {
 	        'sUrlBase': 'https://api.icndb.com/',
@@ -150,11 +150,11 @@
     </div>
     <div class="footer">
         <div class="container text-muted text-center small">
-            SillyApp &copy; Abhay Bhave, GIPL, 2018
+            QkApp &copy; Abhay Bhave, GIPL, 2018
         </div>
     </div>
 
-	<div data-sillyapp-role="dialog" class="modal" role="dialog" style="background-color: rgba(0, 0, 0, 0.5);">
+	<div data-qkapp-role="dialog" class="modal" role="dialog" style="background-color: rgba(0, 0, 0, 0.5);">
 		<div class="modal-dialog container">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -171,7 +171,7 @@
 	</div>
 
     <script type="text/javascript" src="CryptoJS/sha512.js"></script>
-    <script type="text/javascript" src="./js/test.app.js"></script>
-    <script type="text/javascript" src="./js/tests_api_gateway.js"></script>
+    <script type="text/javascript" src="./js/demo.app.js"></script>
+    <script type="text/javascript" src="./js/demo.apigateway.js"></script>
 </body>
 </html>

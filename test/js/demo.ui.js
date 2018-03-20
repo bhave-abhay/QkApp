@@ -10,7 +10,7 @@ $(function () {
             'onClick': fn_show_login_dialog
         }]);
 
-    var formLogin = $('#formLogin').SillyForm({
+    var formLogin = $('#formLogin').QkForm({
         cbGetData: function () {
             return {
                 'sUserId': $('#txtUsername').val(),
@@ -22,7 +22,7 @@ $(function () {
             $('#txtPassword').val('');
         }
     });
-    formLogin.on('sillyform:validate', function (evt, vetoPoll) {
+    formLogin.on('qkform:validate', function (evt, vetoPoll) {
         var eltUserName = $('#txtUsername');
         var eltPswd = $('#txtPassword');
         if (eltUserName.val() === '') {
@@ -59,7 +59,7 @@ $(function () {
             }]);
     }
 
-    var formBusiness_basic = $('#formBusiness_basic').SillyForm({
+    var formBusiness_basic = $('#formBusiness_basic').QkForm({
         cbGetData: function () {
             return {
                 'sBusinessName': $('#txtBusinessFullName').val(),
@@ -81,13 +81,13 @@ $(function () {
             $('#txtBusinessCountryCode').val(objData.sCountryCode);
         }
     });
-    formBusiness_basic.on('sillyform:validate', function (evt, vetoPoll) {
+    formBusiness_basic.on('qkform:validate', function (evt, vetoPoll) {
         if ($('#txtBusinessShortName').val() === '') {
             vetoPoll.veto('Short name of Business is mandatory', 'txtBusinessShortName');
         }
     });
 
-    var formBusiness_contact = $('#formBusiness_contact').SillyForm({
+    var formBusiness_contact = $('#formBusiness_contact').QkForm({
         cbGetData: function () {
             return {
                 sPhoneNumber1: $('#txtBusinessPhoneNumber1').val(),
@@ -99,13 +99,13 @@ $(function () {
             $('#txtBusinessPhoneNumber1').val(objData.sPhoneNumber1);
         }
     });
-    formBusiness_contact.on('sillyform:validate', function (evt, vetoPoll) {
+    formBusiness_contact.on('qkform:validate', function (evt, vetoPoll) {
         if ($('#txtBusinessEmail').val() === '') {
             vetoPoll.veto('Business email is mandatory', 'txtBusinessEmail');
         }
     });
 
-    var formAdmin_basic = $('#formAdmin').SillyForm({
+    var formAdmin_basic = $('#formAdmin').QkForm({
         cbGetData: function () {
             return {
                 'sNameFirst': $('#txtFirstName').val(),
@@ -123,7 +123,7 @@ $(function () {
             $('#txtMobile').val(objData.sMobileNumber);
         }
     });
-    formAdmin_basic.on('sillyform:validate', function (evt, vetoPoll) {
+    formAdmin_basic.on('qkform:validate', function (evt, vetoPoll) {
         if ($('#txtFirstName').val() === '') {
             vetoPoll.veto('First name not entered', 'txtFirstName');
         }
@@ -141,7 +141,7 @@ $(function () {
         }
     });
 
-    var formAdmin_SecurityInfo = $('#formAdmin_SecurityInfo').SillyForm({
+    var formAdmin_SecurityInfo = $('#formAdmin_SecurityInfo').QkForm({
         cbGetData: function () {
             //var userInfo = $('#txtUsername_ro').data('userInfo');
             return {
@@ -154,7 +154,7 @@ $(function () {
             $('#txtUsername_ro').val(objData.sUserId);
         }
     });
-    formAdmin_SecurityInfo.on('sillyform:validate', function (evt, vetoPoll) {
+    formAdmin_SecurityInfo.on('qkform:validate', function (evt, vetoPoll) {
         if ($('#txtNewPassword').val() === '') {
             vetoPoll.veto('Password not entered', 'txtNewPassword');
         }
@@ -166,20 +166,20 @@ $(function () {
         }
     });
 
-    var formOTP = $('#formOTP').SillyForm({
+    var formOTP = $('#formOTP').QkForm({
         cbGetData: function () {
             return {
                 'sOtpHash': CryptoJS.SHA512($('#txtOTP').val()).toString().toUpperCase()
             };
         }
     });
-    formOTP.on('sillyform:validate', function (e, vetoPoll) {
+    formOTP.on('qkform:validate', function (e, vetoPoll) {
         if ($('#txtOTP').val() === '') {
             vetoPoll.veto('OTP not entered!', 'txtOTP');
         }
     });
 
-    var wizardCreateBusiness = $('#divWizard').SillyWizard({
+    var wizardCreateBusiness = $('#divWizard').QkWizard({
         arrForms: [
             {
                 form: formBusiness_basic,
@@ -212,7 +212,7 @@ $(function () {
             },
             {
                 form: formAdmin_SecurityInfo,
-                data: function () { return formAdmin_basic.sillyval(); },
+                data: function () { return formAdmin_basic.qkval(); },
                 title: 'Admin User - Security Information'
             },
             {
@@ -233,7 +233,7 @@ $(function () {
         }
     });
     wizardCreateBusiness.on(
-        'sillywizard:done',
+        'qkwizard:done',
         function (evt,
             dataBusiness_basic,
             dataBusiness_contact,
