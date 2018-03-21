@@ -8,7 +8,16 @@
 ![Github All Releases](https://img.shields.io/github/downloads/bhave-abhay/QkApp/total.svg)
 [![GitHub issues](https://img.shields.io/github/issues/bhave-abhay/QkApp.svg)](https://github.com/bhave-abhay/QkApp/issues)
 
-
+QkApp provides
+- [UI Components](#ui-components)
+  - [QkAlert](#1-qkalert)
+  - [QkForm](#2-qkform)
+  - [QkDialog](#3-qkdialog)
+  - [QkWizard](#4-qkwizard)
+- [Script Components](#script-components)
+  - [QkAPIGateway](#qkapigateway)
+  - [QkLoginManager](#qkloginmanager)
+  - [QkSession](#qksession)
 
 # Requirements
 1. Bootstrap 4.0
@@ -34,8 +43,11 @@ window.alert = app.show_alert.bind(app);
 QkAlert is a JQuery plugin provided by QkApp. It converts any element into an alert container.
 
 ### html
+```html
+<div data-qkapp-role="alert-container"></div>
+```
 #### Additional html mark-up
-1. `<div data-qkapp-role="alert-container">...</div>`
+1. `data-qkapp-role="alert-container"`
 	- This data property can be used on any container of your choice.
 	- All the QkAlerts are pushed into first qkapp alert container in the
 document, identified by this attribute.
@@ -86,7 +98,7 @@ The sample login form in demo is created as follows:
 	</div>
 </div>
 ```
-### additional html mark-up
+#### additional html mark-up
 1. `data-qkform-causesvalidation="true"`
 	- This attribute can be used on input of any control in a qk form.
 	- With this attribute set to true, the QkForm is validated on change of the input
@@ -144,7 +156,7 @@ bootstrap modal dialog
 	</div>
 </div>
 ```
-### additional html mark-up
+#### additional html mark-up
 1. `data-qkapp-role="dialog"`
 	- This data property is used on a bootstrap dialog element.
 	- It's header, footer and body elements are identified with corresponding bootstrap classes.
