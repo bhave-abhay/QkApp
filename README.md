@@ -1,6 +1,6 @@
 ![QkApp Logo](./assets/QkApp-logo-tran-128-128.png)
 
-###Quick, simple, minimalist JS app framework for browsers
+#Quick, simple, minimalist JS app framework for browsers
 
 <small>(Thanks to [LogoMakr](https://logomakr.com/) for this free logo)</small>
 
@@ -10,36 +10,36 @@
 
 
 
-### Requirements
+# Requirements
 1. Bootstrap 4.0
 2. JQuery 3.3.1
 
-### Demo
+# Demo
 See the library in action.
 - [UI demo](https://bhave-abhay.github.io/QkApp/demo/)
 - [API gateway demo](https://bhave-abhay.github.io/QkApp/demo/api-gateway-demo.html)
 
-### Docs
+# Docs
 [Read docs](https://bhave-abhay.github.io/QkApp/docs/)
 
-### How to use
+# How to use
 
-Basic Usage:-
+## Basic Usage:-
 ```javascript
 var app = new QkApp($, {});
 window.alert = app.show_alert.bind(app);
 ```
 
-#### 1. QkAlert
+## 1. QkAlert
 QkAlert is a JQuery plugin provided by QkApp. It converts any element into an alert container.
 
-##### html
-###### Additional html mark-up
+### html
+#### Additional html mark-up
 1. `<div data-qkapp-role="alert-container">...</div>`
 	- This data property can be used on any container of your choice.
 	- All the QkAlerts are pushed into first qkapp alert container in the
 document, identified by this attribute.
-##### javascript
+### javascript
 ```javascript
 alert('Hello, alerts!');
 alert('QkAlerts are customizable', 'alert-success' /*css classes*/);
@@ -53,7 +53,7 @@ with the above basic constructor and window.alert function binding, you can acce
 via your standard (or with additional QkAlert params) window.alert calls.
 
 
-#### 2. QkForm
+## 2. QkForm
 This widget provides a thin wrapper around html forms with ability to
 read/write data as a whole object represented in the form rather than
 individual bits and pieces. It allows you to read a form's "qk value".
@@ -64,7 +64,7 @@ event get a veto poll along the event. You can put your veto if data is invalid.
 or is `undefined`.
 
 The sample login form in demo is created as follows:
-##### html
+### html
 ```html
 <div id="formLogin" class="container">
 	<div class="row">
@@ -86,7 +86,7 @@ The sample login form in demo is created as follows:
 	</div>
 </div>
 ```
-##### additional html mark-up
+### additional html mark-up
 1. `data-qkform-causesvalidation="true"`
 	- This attribute can be used on input of any control in a qk form.
 	- With this attribute set to true, the QkForm is validated on change of the input
@@ -94,7 +94,7 @@ The sample login form in demo is created as follows:
 	- This attribute can be used on any container in the QkForm.
 	- The ul element containing validation messages list items is appended to this element.
 
-##### javascript
+### javascript
 ```javascript
 var formLogin = $('#formLogin').QkForm({
         cbGetData: function () { //callback to read data object
@@ -120,11 +120,11 @@ var formLogin = $('#formLogin').QkForm({
     });
 ```
 
-#### 3. QkDialog
+## 3. QkDialog
 This widget provides a thin wrapper around bootstrap modal dialog.
 It re-uses the whole dialog dom. It is therefore, by design, always non-recursive.
 
-##### html
+### html
 This is the common, re-used mark-up for dialog.
 Except for `data-qkapp-role="dialog"` attribute, it is standard, but empty template for
 bootstrap modal dialog
@@ -144,15 +144,15 @@ bootstrap modal dialog
 	</div>
 </div>
 ```
-##### additional html mark-up
+### additional html mark-up
 1. `data-qkapp-role="dialog"`
 	- This data property is used on a bootstrap dialog element.
 	- It's header, footer and body elements are identified with corresponding bootstrap classes.
 	- This dialog element is (re)used as the dialog element for all dialogs.
 	- For more info, see [Dialog api](#dialog-api) [TODO: Document dialog api].
 
-##### Basic Usage
-###### javascript
+### Basic Usage
+#### javascript
 ```javascript
 app.show_dialog(
   'Dialog Title',
@@ -172,7 +172,7 @@ app.show_dialog(
   }
 }]);
 ```
-##### Usage with QkForms
+### Usage with QkForms
 It provides `.buttons([{...}, ...])` api for adding buttons and assigning their
 respective display classes and click handlers.
 The click handler assigned to a QkDialog button receives a dialogState object.
@@ -185,7 +185,7 @@ It has 2 properties, viz
 
 The sample login dialog in demo is created, based on above form, as follows:
 
-###### javascript
+#### javascript
 ```javascript
 app.show_dialog('Login', formLogin, { 'sUserId': 'Abhay.Bhave' })
 	.buttons([{
@@ -212,9 +212,9 @@ app.show_dialog('Login', formLogin, { 'sUserId': 'Abhay.Bhave' })
 ```
 
 
-#### 4. QkWizard
+## 4. QkWizard
 This widget binds multiple QkForms into a wizard-like UI.
-##### html
+### html
 This is the common, re-used mark-up for wizard.
 It is, mostly, the standard template for
 bootstrap card with header and footer
@@ -245,7 +245,7 @@ bootstrap card with header and footer
 	</div>
 </div>
 ```
-###### additional html mark-up
+### additional html mark-up
 1. `data-qkwizard-role="frame-title"`
 	- This data property is used to identify frame title element.
 	- This element is used to show individual title for each QkForm shown in the wizard
@@ -255,7 +255,7 @@ bootstrap card with header and footer
 	- This property identifies the element where the navigation controls (Next/Prev)
 	will be displayed.
 
-##### javascript
+### javascript
 ```javascript
 var formBusiness_basic = $('#formBusiness_basic').QkForm({
 	//...
