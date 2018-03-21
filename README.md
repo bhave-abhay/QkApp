@@ -51,6 +51,7 @@ QkAlert is a JQuery plugin provided by QkApp. It converts any element into an al
 	- This data property can be used on any container of your choice.
 	- All the QkAlerts are pushed into first qkapp alert container in the
 document, identified by this attribute.
+
 ### javascript
 ```javascript
 alert('Hello, alerts!');
