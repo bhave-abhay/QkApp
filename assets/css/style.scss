@@ -2,6 +2,7 @@
 ---
 
 @import "{{ site.theme }}";
-.container {
+#main_content {
 	max-width: none!important;
+	width: 90%!important;
 }
