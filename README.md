@@ -227,9 +227,14 @@ app.show_dialog('Login', formLogin, { 'sUserId': 'Abhay.Bhave' })
 ## 4. QkWizard
 This widget binds multiple QkForms into a wizard-like UI.
 ### html
-This is the common, re-used mark-up for wizard.
-It is, mostly, the standard template for
-bootstrap card with header and footer
+This is mostly the standard template for
+bootstrap card with header and footer.
+
+The card body contains all the forms.
+
+The forms added to a wizard can be anywhere in the document, but
+this sounds like the logical place for them anyway.
+
 ```html
 <div class="card" id="divWizard">
 	<div class="card-header">Make my business smarter!</div>
@@ -257,7 +262,7 @@ bootstrap card with header and footer
 	</div>
 </div>
 ```
-### additional html mark-up
+#### additional html mark-up
 1. `data-qkwizard-role="frame-title"`
 	- This data property is used to identify frame title element.
 	- This element is used to show individual title for each QkForm shown in the wizard
