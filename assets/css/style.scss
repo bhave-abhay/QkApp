@@ -3,5 +3,5 @@
 
 @import "{{ site.theme }}";
 .container {
-	max-width: none;
+	max-width: none!important;
 }
