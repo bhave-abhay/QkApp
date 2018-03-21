@@ -1,6 +1,6 @@
 ![QkApp Logo](./assets/QkApp-logo-tran-128-128.png)
 
-###Quick, simple, minimalist JS app framework for browsers
+### Quick, simple, minimalist JS app framework for browsers
 
 <small>(Thanks to [LogoMakr](https://logomakr.com/) for this free logo)</small>
 
