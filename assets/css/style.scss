@@ -2,7 +2,8 @@
 ---
 
 @import "{{ site.theme }}";
-#main_content {
+
+#header_wrap .inner, #main_content {
 	max-width: none!important;
 	width: 90%!important;
 }
