@@ -1,13 +1,3 @@
-![QkApp Logo](./assets/QkApp-logo-tran-128-128.png)
-
-# Quick, simple, minimalist JS app framework for browsers
-
-<small>(Thanks to [LogoMakr](https://logomakr.com/) for this free logo)</small>
-
-[![GitHub Starts](https://img.shields.io/github/stars/bhave-abhay/QkApp.svg)](https://github.com/bhave-abhay/QkApp/stargazers)
-![Github All Releases](https://img.shields.io/github/downloads/bhave-abhay/QkApp/total.svg)
-[![GitHub issues](https://img.shields.io/github/issues/bhave-abhay/QkApp.svg)](https://github.com/bhave-abhay/QkApp/issues)
-
 QkApp provides
 - [UI Components](#ui-components)
   - [QkAlert](#1-qkalert)

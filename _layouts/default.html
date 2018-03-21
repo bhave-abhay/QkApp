@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: " en-US " }}">
+
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="viewport" content="width=device-width,maximum-scale=2">
+	<meta name="description" content="{{ site.title | default: site.github.repository_name }} : {{ site.description | default: site.github.project_tagline }}">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"> {% seo %}
+</head>
+
+<body>
+
+	<!-- HEADER -->
+	<div id="header_wrap" class="outer">
+		<header class="inner">
+			<a id="forkme_banner" href="{{ site.github.repository_url }}">View on GitHub</a> ![QkApp Logo](./assets/QkApp-logo-tran-128-128.png) # Quick, simple, minimalist JS app framework for browsers
+
+			<small>(Thanks to [LogoMakr](https://logomakr.com/) for this free logo)</small> [![GitHub Starts](https://img.shields.io/github/stars/bhave-abhay/QkApp.svg)](https://github.com/bhave-abhay/QkApp/stargazers) ![Github All Releases](https://img.shields.io/github/downloads/bhave-abhay/QkApp/total.svg)
+			[![GitHub issues](https://img.shields.io/github/issues/bhave-abhay/QkApp.svg)](https://github.com/bhave-abhay/QkApp/issues)
+
+			<section id="downloads">
+				<a class="zip_download_link" href="{{ site.github.zip_url }}">Download as a .zip file</a>
+				<a class="tar_download_link" href="{{ site.github.tar_url }}">Download as a tar.gz file</a>
+			</section>
+		</header>
+	</div>
+
+	<!-- MAIN CONTENT -->
+	<div id="main_content_wrap" class="outer">
+		<section id="main_content" class="inner">
+			{{ content }}
+		</section>
+	</div>
+
+	<!-- FOOTER  -->
+	<div id="footer_wrap" class="outer">
+		<footer class="inner">
+			{% if site.github.is_project_page %}
+			<p class="copyright">{{ site.title | default: site.github.repository_name }} maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+			{% endif %}
+			<p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+		</footer>
+	</div>
+</body>
+
+</html>
