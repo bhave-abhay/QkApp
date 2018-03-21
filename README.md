@@ -1,5 +1,7 @@
-## Welcome to QkApp
-A quick, simple, minimalistic JS app framework for browser
+![QkApp Logo](./assets/QkApp-logo-tran-128-128.png)
+Quick, simple, minimalist JS app framework for browsers
+
+<small>(Thanks to [LogoMakr](https://logomakr.com/) for this free logo)</small>
 
 [![GitHub Starts](https://img.shields.io/github/stars/bhave-abhay/QkApp.svg)](https://github.com/bhave-abhay/QkApp/stargazers)
 ![Github All Releases](https://img.shields.io/github/downloads/bhave-abhay/QkApp/total.svg)
@@ -12,10 +14,13 @@ A quick, simple, minimalistic JS app framework for browser
 2. JQuery 3.3.1
 
 ### Demo
-[See demo](https://bhave-abhay.github.io/QkApp/demo/)
+See the library in action.
+- [UI demo](https://bhave-abhay.github.io/QkApp/demo/)
+- [API gateway demo](https://bhave-abhay.github.io/QkApp/demo/api-gateway-demo.html)
 
 ### Docs
 [Read docs](https://bhave-abhay.github.io/QkApp/docs/)
+
 ### How to use
 
 Basic Usage:-
