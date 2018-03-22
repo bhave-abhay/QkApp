@@ -24,6 +24,12 @@ See the library in action.
 # How to use
 
 ## Basic Usage:-
+### html
+```html
+<script type="text/javascript" src="{Path/To/}QkApp.js"></script>
+```
+### javascript
+
 ```javascript
 var app = new QkApp($, {});
 window.alert = app.show_alert.bind(app);
