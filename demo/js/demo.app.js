@@ -33,17 +33,22 @@ var app = new QkApp($, {
 });
 /*
 $(document).on('QkLoginManager:SessionValidatationSuccess', function (evt, resp) {
-
+	$('.usermenu').show();
+	$('.visitormenu').hide();
 });
 $(document).on('QkLoginManager:SessionValidatationFailure', function (evt, resp) {
-
+	$('.usermenu').hide();
+	$('.visitormenu').show();
 });
 
 $(document).on('QkLoginManager:LoginSuccess', function (evt, resp) {
-    window.location.replace('CPUsers.aspx');
+	$('.usermenu').show();
+	$('.visitormenu').hide();
 });
 $(document).on('QkLoginManager:LogoutSuccess', function (evt, resp) {
     window.location.replace('Default.aspx');
+	$('.usermenu').hide();
+	$('.visitormenu').show();
 });
 app.validateSession();
 */

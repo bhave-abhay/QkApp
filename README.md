@@ -1,22 +1,10 @@
-QkApp provides
-- [UI Components](#ui-components)
-  - [QkAlert](#1-qkalert)
-  - [QkForm](#2-qkform)
-  - [QkDialog](#3-qkdialog)
-  - [QkWizard](#4-qkwizard)
-- [Script Components](#script-components)
-  - [QkAPIGateway](#qkapigateway)
-  - [QkLoginManager](#qkloginmanager)
-  - [QkSession](#qksession)
-
 # Requirements
-1. Bootstrap 4.0
-2. JQuery 3.3.1
+1. [JQuery 3.3.1](https://code.jquery.com/jquery-3.3.1.min.js)
+2. [Bootstrap 4.0](https://getbootstrap.com/docs/4.0/getting-started/download/)
 
-# Demo
-See the library in action.
-- [UI demo](https://bhave-abhay.github.io/QkApp/demo/)
-- [API gateway demo](https://bhave-abhay.github.io/QkApp/demo/api-gateway-demo.html)
+# See QkApp in action.
+### [UI demo](https://bhave-abhay.github.io/QkApp/demo/)
+### [API gateway demo](https://bhave-abhay.github.io/QkApp/demo/api-gateway-demo.html)
 
 # Docs
 [Read docs](https://bhave-abhay.github.io/QkApp/docs/)
@@ -41,8 +29,8 @@ freedom over the form html, and can write the form exactly as is needed.
 
 In addition to that,
 the developer may also identify some of the input fields whose change event needs to trigger
-form validation with [`data-qkform-causesvalidation`](#data-qkform-causesvalidation) property.
-Also, the developer may specify which element is used to display a list of validation error
+form validation, with [`data-qkform-causesvalidation`](#data-qkform-causesvalidation) property.
+Also, the developer may specify which element to use, in order to display a list of validation error
 messages, with [`data-qkform-role`](#data-qkform-role) property.
 
 
@@ -53,9 +41,33 @@ QkApp is designed to separate the html mark-up and it's "App-like" behavior.
 Designed to control the html, and not to generate it, QkApp offers completely
 predictable html rendering of your app.
 
-#Now, what?!
+QkApp is tested for BootStrap v4 vanilla, and on all themes of BootSwatch v4.
+On 3 or 4 of the BootSwatch themes (out of 12) there are some minor display glitches.
+But overall, no showstopper UI issues on any of those, and NO functional issue on any. 8-)
+
+It is also tested on [Bootstrap.386](#bootstrap-386) - one of my most favourite
+BootStrap customization ;) . Not a bad show either, but the BootStrap v4
+round corners ruin half the fun it has with BootStrap v3.x.
+
+# What QkApp is NOT!
+- QkApp is NOT a theming tool. It does not even define a single css class of it's own.
+  - All the classes it uses by default are from bootstrap-4, so any customization thereof is readily compatible with it.
+  - Almost all of the classes it assigns are configurable. You are free to choose ANY!
+    - [TODO - make EVERY class QkApp assigns to any elements configurable.]
+
+# Now, what?!
 QkApp provides a system of many components that can be used with each other seamlessly,
 allowing whatever combinations you want off them.
+
+- [UI Components](#ui-components)
+  - [QkAlert](#1-qkalert)
+  - [QkForm](#2-qkform)
+  - [QkDialog](#3-qkdialog)
+  - [QkWizard](#4-qkwizard)
+- [Script Components](#script-components)
+  - [QkAPIGateway](#qkapigateway)
+  - [QkLoginManager](#qkloginmanager)
+  - [QkSession](#qksession)
 
 ## QkApp Components
 - [UI Components](#ui-components)
@@ -82,5 +94,7 @@ allowing whatever combinations you want off them.
   - [QkWizard](#qkwizard)
 - [App Components](#app-components)
   - [QkAPIGateway](#qkapigateway)
+     - Customizable API gateway
+	 - Promise based, simple API. [See demo](https://bhave-abhay.github.io/QkApp/demo/api-gateway-demo.html) 
   - [QkLoginManager](#qkloginmanager)
   - [QkSession](#qksession)

@@ -88,8 +88,6 @@ QkLoginManager.prototype.login = function (objCreds) {
                 window.sessionStorage.setItem(this_.objLoginOptions.userInfoKey, JSON.stringify(resp[this_.objLoginOptions.userInfoKey]));
                 this_.objLoginOptions.cbUserInfo(resp[this_.objLoginOptions.userInfoKey]);
             }
-            $('.usermenu').show();
-            $('.visitormenu').hide();
             $(document).trigger('QkLoginManager:LoginSuccess', resp);
         })
         .fail(function (err) {
@@ -102,8 +100,6 @@ QkLoginManager.prototype.logout = function () {
     return this_.objLoginOptions.cbLogoutProm()
         .done(function (resp) {
             window.sessionStorage.removeItem(this_.objLoginOptions.sessionRefKey);
-            $('.usermenu').hide();
-            $('.visitormenu').show();
             $(document).trigger('QkLoginManager:LogoutSuccess', resp);
         })
         .fail(function (err) {
@@ -296,17 +292,20 @@ var QkApp = function ($, objOptions) {
                 }
             }
             arrFormInfo[jFormIndex].form.qkval(formData);
-            jqElts.wizard_frame_title.html(arrFormInfo[jFormIndex].title + ' <small>[' + (jFormIndex+1) + '/' + arrFormInfo.length + ']</small>');
+            jqElts.wizard_frame_title.html(
+				arrFormInfo[jFormIndex].title +
+				' <small class="text-muted">[' + (jFormIndex+1) + '/' + arrFormInfo.length + ']</small>'
+			);
 			$(arrFormInfo[jFormIndex].form.find('input:enabled')[0]).focus();
         }
         function fn_nav_next() {
             var fDone = false;
-            if (jCurrFormIndex === arrFormInfo.length - 1) {
-                fDone = true;
-            }
             var formData = arrFormInfo[jCurrFormIndex].form.qkval();
             if (formData !== undefined) {
                 arrData[jCurrFormIndex] = formData;
+				if (jCurrFormIndex === arrFormInfo.length - 1) {
+	                fDone = true;
+	            }
                 var jNextFormIndex = jCurrFormIndex + 1;
                 if (jNextFormIndex < arrFormInfo.length) {
                     fn_show_form(jNextFormIndex);
