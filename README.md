@@ -49,13 +49,14 @@ It is also tested on [Bootstrap.386](#bootstrap-386) - one of my most favourite
 BootStrap customization ;) . Not a bad show either, but the BootStrap v4
 round corners ruin half the fun it has with BootStrap v3.x.
 
-# What QkApp is NOT!
+### What QkApp is NOT!
 - QkApp is NOT a theming tool. It does not even define a single css class of it's own.
   - All the classes it uses by default are from bootstrap-4, so any customization thereof is readily compatible with it.
   - Almost all of the classes it assigns are configurable. You are free to choose ANY!
-    - [TODO - make EVERY class QkApp assigns to any elements configurable.]
+    - [TODO - add config for EVERY class which QkApp assigns to any elements.]
+- QkApp does not a server side software. It works in browser, and facilitates some "meta" capabilities generally needed for any and all APPs, like handling a form as, well, just that - a form, or showing a form in dialog or a wizard or elsewhere.
 
-# Now, what?!
+# Now, what is QkApp?
 QkApp provides a system of many components that can be used with each other seamlessly,
 allowing whatever combinations you want off them.
 
