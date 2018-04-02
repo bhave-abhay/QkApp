@@ -503,7 +503,7 @@ var QkApp = function ($, objOptions) {
     };
     var QkAlert = function () {
         function CreateAlertElt(msg, cssClass) {
-            var elt = $('<div class="alert alert-dismissable"><span class="close" data-dismiss="alert" aria-label="close">X</span></div>');
+            var elt = $('<div class="alert alert-dismissable"><span class="close" data-dismiss="alert" aria-label="close">&times;</span></div>');
             elt.addClass(cssClass);
             elt.append(msg);
             return elt;

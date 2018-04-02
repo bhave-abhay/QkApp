@@ -54,11 +54,13 @@ round corners ruin half the fun it has with BootStrap v3.x.
   - All the classes it uses by default are from bootstrap-4, so any customization thereof is readily compatible with it.
   - Almost all of the classes it assigns are configurable. You are free to choose ANY!
     - [TODO - add config for EVERY class which QkApp assigns to any elements.]
-- QkApp does not a server side software. It works in browser, and facilitates some "meta" capabilities generally needed for any and all APPs, like handling a form as, well, just that - a form, or showing a form in dialog or a wizard or elsewhere.
+- QkApp is not a server side software. It works in browser, and facilitates some "meta" capabilities generally needed for any and all APPs
 
 # Now, what is QkApp?
 QkApp provides a system of many components that can be used with each other seamlessly,
-allowing whatever combinations you want off them.
+allowing whatever combinations you want off them. It forms a skeleton for an app with
+capabilities like handling a form as, well, just that - a form, or showing a form in
+dialog or a wizard or elsewhere, or requesting a web service, etc.
 
 - [UI Components](#ui-components)
   - [QkAlert](#1-qkalert)
@@ -93,9 +95,9 @@ allowing whatever combinations you want off them.
          - When ant least one listener vetoes validation, the qkval is reported to be undefined to the caller. If there is no veto, it constructs the qkvql object with your callback, and returns it.
   - [QkDialog](#qkdialog)
   - [QkWizard](#qkwizard)
-- [App Components](#app-components)
+- [Script Components](#script-components)
   - [QkAPIGateway](#qkapigateway)
      - Customizable API gateway
-	 - Promise based, simple API. [See demo](https://bhave-abhay.github.io/QkApp/demo/api-gateway-demo.html) 
+	 - Promise based, simple API. [See demo](https://bhave-abhay.github.io/QkApp/demo/api-gateway-demo.html)
   - [QkLoginManager](#qkloginmanager)
   - [QkSession](#qksession)

@@ -41,7 +41,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="doc/">
+                                <a class="nav-link" href="../docs/">
                                     <i class="fas fa-envelope"></i>
                                     Documentation
                                 </a>
@@ -119,28 +119,55 @@
 	var app = new QkApp($, {
 
 	    apiConfig: {
+			/**
+				This is the base URL for this API gateway.
+			*/
 	        'sUrlBase': 'https://api.icndb.com/',
+
+			/**
+				This is the callback for request params used for ALL the requests to this API gatewat.
+				API keys, for instance, go here.
+			*/
 	        'cbDecorateRequestData': function (objRequestData) { // DecorateRequestData callback
-	            objDefault = {
-					'firstName': 'Suhas',
-					'lastName': 'Palkar',
-					'limitTo': ['nerdy']
+
+				//This is the object with properties assigned to
+				//ALL the request objects that are sent through this gateway.
+
+				objDefault = {
+					'limitTo': ['nerdy'] //So that it's Safe For Work :p
 				};
+
+				//Assigne above common prop(s) to the request param object
 	            var decorateRequestData = $.extend({ }, objDefault, objRequestData);
+
 	            return decorateRequestData;
 	        },
+
+			/**
+				This is the callback to test whether the response received through
+				this gateway is actually a "Success" response, according to the server semaphore.
+			*/
 	        'cbResponseSuccessTest': function (rsp) { //Repsponse success test callback
+				//In this case, this is defined by the International Chuck Norris DataBase https://icndb.com/
 	            return rsp.type==='success';
 	        }
 	    }
 	});
 	$(function () {
 		$('#btnRandomJoke').click(function(e){
-			app.api_get('jokes/random', {}, 'value')
-				.done(function(value){
-					$('#divJokeText').html(value.joke);
-				})
-				.fail(alert);
+			app.api_get(
+				'jokes/random',
+				{
+					'firstName': 'Thalaiva',
+					'lastName': 'Rajinikanth',
+				},
+				'value'
+			)
+			.done(function(value){
+				$('#divJokeText').html(value.joke);
+			})
+			.fail(alert);
+
 			e.preventDefault();
 		})
 	});
