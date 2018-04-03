@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>QkApp Demos : Overlay</title>
+    <link rel="stylesheet" href="../../lib/bootstrap/4.0.0/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/prism/prism.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            min-height: 75rem;
+            padding-top: 4.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Fixed navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <main role="main" class="container">
+
+        <div class="jumbotron pt-4">
+            <span class="m-auto" data-qkapp-role="alert-container">
+            </span>
+            <h1>Overlay Example</h1>
+            <ul class="nav nav-tabs mb-1" id="tab-overlay" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="tab-htmlOverlay" data-toggle="tab" href="#htmlOverlay" role="tab" aria-controls="home" aria-selected="true">HTML</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab-jsOverlay" data-toggle="tab" href="#jsOverlay" role="tab" aria-controls="profile" aria-selected="false">Javascript</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab-demoOverlay" data-toggle="tab" href="#demoOverlay" role="tab" aria-controls="contact" aria-selected="false">Demo</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="htmlOverlay" role="tabpanel" aria-labelledby="tab-htmlOverlay">
+
+                    <a class="copy-to-clipboard" href="javascript:void(0)">
+                        <i class="fa fa-copy"></i>
+                    </a>
+                    <div class="col-md-12 p-0">
+                        <pre>
+                        <code class="language-markup">
+                                    &lt;html>
+                                        &lt;body>
+                                            
+                                            &lt;!-- Overlay to be initialized and displayed on below container -->
+                                            &lt;div class="" id="ViewOverlay">
+                                                ... all child mark-up goes here
+                                            &lt;/div>
+                                        &lt;/body>
+                                    &lt;/html>
+                        </code>
+                    </pre>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="jsOverlay" role="tabpanel" aria-labelledby="tab-jsOverlay">
+
+                    <a class="copy-to-clipboard" href="javascript:void(0)">
+                        <i class="far fa-copy"></i>
+                    </a>
+                    <div class="col-md-12 p-0">
+                        <pre>
+                            <code class="language-javascript">
+                                    function GetData(){
+                                        // View Overlay over elOverlay Container
+                                        elOverlay.show_overlay('Please wait', '<code class="language-markup">&lt;i class="fa fa-spinner fa-spin" style="font-size:40px;color:white">&lt;/i></code>');
+                                        
+                                        ...your ajax logic goes here
+                                    }
+
+                                    var app = new QkApp($, {}); // Make your App a QkApp
+                                    window.alert = app.alert.bind(app); // Over-ride window.alert to that of QkAlert
+
+                                    var jqDocument = $(document),
+                                        elOverlay = $('#demo-OverlayView').QkOverlay(); // Make a Overlay Container
+
+                                    jqDocument
+                                        .on('click', '#btnShowOverlay', () => {
+                                            GetData(); // Get Data asynchronously
+                                        });
+                            </code>
+                        </pre>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="demoOverlay" role="tabpanel" aria-labelledby="tab-demoOverlay">
+
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <!-- <button type="button" class="btn btn-sm btn-outline-success" id="btnShowOverlay">Show Overlay</button> -->
+                        <!-- <button type="button" class="btn btn-sm btn-outline-danger ml-1" id="btnHideOverlay">Hide Overlay</button> -->
+                    </div>
+
+                    <div class="col-md-12 my-3" id="demo-OverlayView" style="height:200px; width:200px;border:1px solid;text-align:center">
+                        <button type="button" class="btn btn-sm btn-outline-success mt-4" id="btnShowOverlay">Get Data</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- =============JavaScript (Bootstrap and QkApp)============= -->
+        <!-- Placed at the end of the document so the pages load faster -->
+
+        <script type="text/javascript" src="../../lib/jquery/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="../../lib/bootstrap/4.0.0/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../../src/js/QkApp.js"></script>
+        <script src="../../lib/prism/prism.js"></script>
+
+        <script type="text/javascript">
+            function CopyToClipboard() {
+
+            }
+
+            function GetData() {
+                elOverlay.show_overlay('Please wait', '<i class="fa fa-spinner fa-spin" style="font-size:40px;color:white"></i>');
+                var jqxhr = $.ajax("http://northwind.servicestack.net/customers.json")
+                    .done(function (res) {
+                        var oData = res;
+                        alert("Data retrieved successfully", "alert-success", 5);
+                    })
+                    .fail(function () {
+                        alert("Something went wrong. Site not available", "alert-danger", 5);
+                    })
+                    .always(function () {
+                        elOverlay.hide_overlay();
+                    });
+            }
+
+            var app = new QkApp($, {});
+            window.alert = app.alert.bind(app);
+
+            var jqDocument = $(document),
+                elOverlay = $('#demo-OverlayView').QkOverlay();
+
+            jqDocument
+                .on('click', '#btnShowOverlay', function () {
+                    GetData();
+                });
+
+        </script>
+</body>
+
+</html>
