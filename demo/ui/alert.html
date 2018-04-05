@@ -1,293 +1,242 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<title>QkApp Demos : Alert</title>
-		<link rel="stylesheet" href="../../lib/bootstrap/4.0.0/bootstrap.css">
-		<link rel="stylesheet" href="../../lib/prism/prism.css">
-		<style media="screen">
-		/* Sticky footer styles
-		-------------------------------------------------- */
-		html {
-			position: relative;
-			min-height: 100%;
-		}
-		body {
-		/* Margin bottom by footer height */
-			margin-bottom: 60px;
-		}
-		.footer {
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-			/* Set the fixed height of the footer here */
-			height: 60px;
-			line-height: 60px; /* Vertically center the text there */
-			background-color: #f5f5f5;
-		}
 
+<head>
+    <meta charset="utf-8">
+    <title>QkApp Demos : Alert</title>
+    <link rel="stylesheet" href="../../lib/bootstrap/4.0.0/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/prism/prism.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <style>
+        body {
+            padding-top: 4.5rem;
+        }
+    </style>
+</head>
 
-		/* Custom page CSS
-		-------------------------------------------------- */
-		/* Not required for template or sticky footer method. */
+<body>
+	<div id="divTopBar" class="fixed-top">
+		<nav class="navbar navbar-expand-md bg-light">
+	   	 <a class="navbar-brand" href="#">Fixed navbar</a>
+	   	 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+	   		 aria-expanded="false" aria-label="Toggle navigation">
+	   		 <span class="navbar-toggler-icon"></span>
+	   	 </button>
+	   	 <div class="collapse navbar-collapse" id="navbarCollapse">
+	   		 <ul class="navbar-nav mr-auto">
+	   			 <li class="nav-item active">
+	   				 <a class="nav-link" href="#">Home
+	   					 <span class="sr-only">(current)</span>
+	   				 </a>
+	   			 </li>
+	   			 <li class="nav-item">
+	   				 <a class="nav-link" href="#">Link</a>
+	   			 </li>
+	   			 <li class="nav-item">
+	   				 <a class="nav-link disabled" href="#">Disabled</a>
+	   			 </li>
+	   		 </ul>
+	   		 <form class="form-inline mt-2 mt-md-0">
+	   			 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+	   			 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	   		 </form>
+	   	 </div>
+	    </nav>
+		<div data-qkapp-role="alert-container"></div>
+	</div>
 
-		body > .container {
-			padding: 60px 15px 0;
-		}
-
-		.footer > .container {
-			padding-right: 15px;
-			padding-left: 15px;
-		}
-
-		code {
-			font-size: 80%;
-		}
-
-		</style>
-	</head>
-	<body>
-
-	    <header class="fixed-top">
-	      <!-- Fixed navbar -->
-	      <nav class="navbar navbar-expand-md navbar-light bg-light">
-	        <a class="navbar-brand" href="#">Fixed navbar</a>
-	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-	          <span class="navbar-toggler-icon"></span>
-	        </button>
-	        <div class="collapse navbar-collapse" id="navbarCollapse">
-	          <ul class="navbar-nav mr-auto">
-	            <li class="nav-item active">
-	              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-	            </li>
-	            <li class="nav-item">
-	              <a class="nav-link" href="#">Link</a>
-	            </li>
-	            <li class="nav-item">
-	              <a class="nav-link disabled" href="#">Disabled</a>
-	            </li>
-	          </ul>
-	          <form class="form-inline mt-2 mt-md-0">
-	            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-	            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-	          </form>
-	        </div>
-	      </nav>
-		  <span class="m-auto" data-qkapp-role="alert-container">
-			  <div class="alert alert-info">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				This is just a closable bootstrap alert, hard-coded in html. <br />
-				It is meant to, well, "show" the (otherwise empty) alert container.
-			  </div>
-		  </span>
-	    </header>
-
-	    <!-- Begin page content -->
-	    <main role="main" class="container-fluid mt-5">
-			<div class="row">
-				<div class="col-3 d-none d-sm-block">
-					<div class="container">
-						<h4>UI Demo</h4>
-						<nav class="nav nav-pills nav-fill flex-column">
-							<a class="nav-link active" href="#">Alert</a>
-							<a class="nav-link" href="#">Overlay</a>
-							<a class="nav-link" href="#">Form</a>
-							<a class="nav-link disabled" href="#">Dialog</a>
-						</nav>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-9">
-					<div class="container">
-						<div class="row">
-						  	<div class="col">
-								<h1>Alert demo</h1>
-								<h2>About the html structure of this page</h2>
-									This page is composed as follows:-
-									<ul>
-										<li>
-											Document Body
-											<ul>
-												<li>header element with bootstrap .fixed-top div
-													<ul>
-														<li>
-															bootstrap .navbar - the actual nav
-														</li>
-														<li style="color:green; font-weight:bold">
-															another div with data-qkapp-role="alert-container"
-														</li>
-													</ul>
-												</li>
-												<li>main element for two column main content
-													<ul>
-														<li>...</li>
-													</ul>
-												</li>
-												<li>...</li>
-											</ul>
-										</li>
-									</ul>
-								<p>
-									Note, that since there is an element with data-qkapp-role="alert-container"
-									(shown in <span style="color:green; font-weight:bold">green</span> in above list) in the document,
-									it will become the default alert container for our QkApp.
-								</p>
-								<h2>JavaScript code of this page</h2>
-								<h3>The message param randomization is done as follows:-</h3>
-								<pre>
-									<code class="language-javascript">
-function getRandomInt(max) {
-	return Math.floor(Math.random() * Math.floor(max));
-}
-
-var arrMessages = [
-	'hello, there',
-	'this is a sample message.',
-	'QkApp saves you from writing a lot of boilerplate',
-	'Using QkApp is fun',
-	'QkApp helps you keep the codebase smaller and cleaner'
-];
-
-var arrAlertClasses = [
-	'alert-danger',
-	'alert-info',
-	'alert-success',
-	'alert-warning'
-];
-
-function getRandomAlertParams(){
-	var params = {
-		sMessage: arrMessages[getRandomInt(arrMessages.length)],
-		sCssClass: undefined,
-		nTimeoutSec: undefined
-	};
-	var toss_AddClass = getRandomInt(2); //0 or 1
-	if(toss_AddClass===0){
-		params.sCssClass = arrAlertClasses[getRandomInt(arrAlertClasses.length)];
-	}
-	var toss_AddTimeout = getRandomInt(2); //0 or 1
-	if(toss_AddTimeout===0){
-		params.nTimeoutSec = 5 + getRandomInt(6);
-		params.sMessage += '<br />Timeout: ' + params.nTimeoutSec + 'sec';
-	}
-	return params;
-}
-									</code>
-								</pre>
-								<h3>The alerts on top (into the default alert container, bound to window.alert function)</h3>
-								<pre>
-									<code class="language-javascript">
-function show_random_alert(){
-	var params = getRandomAlertParams();
-	alert(params.sMessage, params.sCssClass, params.nTimeoutSec);
-}
-$('#btnRandomAlert').click(show_random_alert);
-									</code>
-								</pre>
-						  	</div>
-						</div>
-						<div class="row">
-
-							<div class="btn btn-outline-info" id="btnRandomAlert">
-								Show random alert
-							</div>
-						</div>
-						<hr />
-						<div class="row">
-							<div class="col-6" style="border: 2px solid red" id="alert_container_alt">
-
-							</div>
-							<div class="col-6">
-								The red bordered column on left (div#alert_container_alt) is turned into an alert container as follows:-
-								<pre>
-									<code class="language-javascript">
-var alertContainerAlt = $('#alert_container_alt').QkAlert();
-function show_random_alert_alt(){
-	var params = getRandomAlertParams();
-	alertContainerAlt.show_alert(params.sMessage, params.sCssClass, params.nTimeoutSec);
-}
-$('#btnRandomAlertAlt').click(show_random_alert_alt)
-									</code>
-								</pre>
-								<div class="btn btn-outline-success" id="btnRandomAlertAlt">
-									&lt;&lt; == Show alert
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky px-2">
+                    <h4>QkApp</h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <span data-feather="home"></span>
+                                QkAlert
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file"></span>
+                                QkAlert
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="shopping-cart"></span>
+                                QkDialog
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="users"></span>
+                                QkForm
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="container col-md-10 offset-md-2">
+				<div class="row">
+					<div class="col-12">
+						<h1>Alert Example</h1>
+						<ul class="nav nav-tabs mb-1" id="tab-Alert" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" id="tab-htmlAlert" data-toggle="tab" href="#htmlAlert" role="tab" aria-controls="home" aria-selected="true">HTML</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="tab-jsAlert" data-toggle="tab" href="#jsAlert" role="tab" aria-controls="profile" aria-selected="false">Javascript</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="tab-demoAlert" data-toggle="tab" href="#demoAlert" role="tab" aria-controls="contact" aria-selected="false">Demo</a>
+							</li>
+						</ul>
+						<div class="tab-content" id="myTabContent">
+							<div class="tab-pane fade show active" id="htmlAlert" role="tabpanel" aria-labelledby="tab-htmlAlert">
+								<a class="copy-to-clipboard" href="javascript:void(0)">
+									<i class="fa fa-copy"></i>
+								</a>
+								<div class="col-md-12 p-0">
+									<pre class="language-markup">
+										<code class="language-markup">
+		&lt;div id="demo-alert-container">
+			&lt;!-- Alerts will be pushed here -->
+		&lt;/div>
+		&lt;div id="btnAlertPlain" class="btn btn-default">Show default alert&lt;/div>
+		&lt;div id="btnAlertDanger" class="btn btn-default">Show alert with custom class&lt;/div>
+		&lt;div id="btnAlertTimed" class="btn btn-default">Show alert with custom timeout&lt;/div>
+										</code>
+									</pre>
 								</div>
+
+							</div>
+							<div class="tab-pane fade" id="jsAlert" role="tabpanel" aria-labelledby="tab-jsAlert">
+
+								<a class="copy-to-clipboard" href="javascript:void(0)">
+									<i class="far fa-copy"></i>
+								</a>
+								<div class="col-md-12 p-0">
+									<pre>
+										<code class="language-javascript">
+		//On document load,
+		var qkapp = new QkApp($, {}); //Construct app object. This adds a few widgets to jQuery, including alert.
+		window.alert = qkapp.alert.bind(qkapp); //Bind browser's alert to QkAlert
+		var alertContainer = $('#demo-alert-container').QkAlert(); // Make an Alert-Container
+
+		$('#btnAlertPlain').click(function(e){
+			//Default alert
+			alertContainer.show_alert('QkAlerts are damn easy!');
+		});
+
+		$('#btnAlertDanger').click(function(e){
+			//Alert with class
+			alertContainer.show_alert(
+				'QkAlerts are customizable' /*message*/,
+				'alert-danger' /*alert css class*/,
+			);
+		});
+
+		$('#btnAlertTimed').click(function(e){
+			//Alert with class and timeout
+			alertContainer.show_alert(
+				'QkAlerts can have custom timeouts' /*message*/,
+				'alert-danger' /*alert css class*/,
+				3.5 /*timeout in sec*/
+			);
+		});
+										</code>
+									</pre>
+								</div>
+
+							</div>
+							<div class="tab-pane fade" id="demoAlert" role="tabpanel" aria-labelledby="tab-demoAlert">
+								<div id="demo-alert-container">
+								</div>
+								<div id="btnAlertPlain" class="btn btn-outline-success">Show default alert</div>
+								<div id="btnAlertDanger" class="btn btn-outline-success">Show alert with custom class</div>
+								<div id="btnAlertTimed" class="btn btn-outline-success">Show alert with custom timeout</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-
-	    </main>
-
-	    <footer class="footer">
-	      <div class="container">
-	        <span class="text-muted">Footer text.</span>
-	      </div>
-	    </footer>
-
+				<hr class="">
+				<div class="row">
+					<div class="col-12 container">
+						<h2>Setting QkApp's default Alert Container</h2>
+						<p>
+							QkApp can instantiate the alert container if you tell it where.
+							QkApp creates a QkAlert container on the first element in document
+							with <code>data-qkapp-role="alert-container"</code> property. Thus, the function <code>QkApp.alert</code> puts
+							alerts in this container.
+						</p>
+						<p>
+							We recommend binding this function to window.alert for ease of use.
+							So, when you make a regular <code>alert(...)</code> call, it is sent here.
+						</p>
+						<p>
+							This page, for example, has following mark-up at the beginning of body.
+						</p>
+						<pre class="language-markup">
+							<code class="language-markup">
+	&lt;div class="fixed-top">
+		&lt;nav class="navbar navbar-expand-md bg-light">
+			&lt;!-- Navbar code -->
+		&lt;/nav>
+		&lt;div data-qkapp-role="alert-container">&lt;/div>
+	&lt;/div>
+							</code>
+						</pre>
+						<p>
+							Note the div with <code>data-qkapp-role="alert-container"</code> attribute.
+							The button below calls window.alert on click.
+						</p>
+						<div onclick="window.alert('Hello alerts!' + (new Date()).toString());" class="btn btn-outline-success">Call window.alert</div>
+					</div>
+				</div>
+            </main>
+			<footer class="footer">
+				QkApp
+			</footer>
+        </div>
+    </div>
     <!-- =============JavaScript (Bootstrap and QkApp)============= -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-	<script type="text/javascript" src="../../lib/jquery/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="../../lib/bootstrap/4.0.0/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../../src/js/QkApp.js"></script>
-	<script src="../../lib/prism/prism.js"></script>
+    <script type="text/javascript" src="../../lib/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../../lib/bootstrap/4.0.0/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../src/js/QkApp.js"></script>
+    <script src="../../lib/prism/prism.js"></script>
 
-	<script type="text/javascript">
-		var app = new QkApp($, {});
-		window.alert = app.alert.bind(app);
+    <script type="text/javascript">
+        $(function(){
+			var qkapp = new QkApp($, {}); //Construct app object.
+			window.alert = qkapp.alert.bind(qkapp);
+			var alertContainer = $('#demo-alert-container').QkAlert(); // Make an Alert-Container
+		    $('#btnAlertPlain').click(function(e){
+				alertContainer.show_alert('QkAlerts are damn easy!');
+			});
 
-		function getRandomInt(max) {
-			return Math.floor(Math.random() * Math.floor(max));
-		}
+		    $('#btnAlertDanger').click(function(e){
+				alertContainer.show_alert(
+					'QkAlerts are customizable' /*message*/,
+					'alert-danger' /*alert css class*/,
+				);
+			});
 
-		var arrMessages = [
-			'hello, there',
-			'this is a sample message.',
-			'QkApp saves you from writing a lot of boilerplate',
-			'Using QkApp is fun',
-			'QkApp helps you keep the codebase smaller and cleaner'
-		];
+			$('#btnAlertTimed').click(function(e){
+				alertContainer.show_alert(
+					'QkAlerts can have custom timeouts' /*message*/,
+					'alert-danger' /*alert css class*/,
+					3.5 /*timeout in sec*/
+				);
+			});
+		})
 
-		var arrAlertClasses = [
-			'alert-danger',
-			'alert-info',
-			'alert-success',
-			'alert-warning'
-		];
+    </script>
+</body>
 
-		function getRandomAlertParams(){
-			var params = {
-				sMessage: arrMessages[getRandomInt(arrMessages.length)],
-				sCssClass: undefined,
-				nTimeoutSec: undefined
-			};
-			var toss_AddClass = getRandomInt(2); //0 or 1
-			if(toss_AddClass===0){
-				params.sCssClass = arrAlertClasses[getRandomInt(arrAlertClasses.length)];
-			}
-			var toss_AddTimeout = getRandomInt(2); //0 or 1
-			if(toss_AddTimeout===0){
-				params.nTimeoutSec = 5 + getRandomInt(6);
-				params.sMessage += '<br />Timeout: ' + params.nTimeoutSec + 'sec';
-			}
-			return params;
-		}
-
-		function show_random_alert(){
-			var params = getRandomAlertParams();
-			alert(params.sMessage, params.sCssClass, params.nTimeoutSec);
-		}
-		$('#btnRandomAlert').click(show_random_alert);
-
-		var alertContainerAlt = $('#alert_container_alt').QkAlert();
-		function show_random_alert_alt(){
-			var params = getRandomAlertParams();
-			alertContainerAlt.show_alert(params.sMessage, params.sCssClass, params.nTimeoutSec);
-		}
-		$('#btnRandomAlertAlt').click(show_random_alert_alt)
-	</script>
-	</body>
 </html>
